@@ -1,0 +1,63 @@
+name: Aggiorna calendario
+
+on:
+  schedule:
+    # Ogni notte alle 03:17 UTC (04:17 ora solare, 05:17 ora legale)
+    - cron: "17 3 * * *"
+  # Permette di farlo partire a mano dalla scheda "Actions"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: aggiorna-calendario
+  cancel-in-progress: false
+
+jobs:
+  aggiorna:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    environment:
+      name: github-pages
+      url: ${{ steps.pubblica.outputs.page_url }}
+    steps:
+      - name: Scarica il progetto
+        uses: actions/checkout@v4
+
+      - name: Prepara Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Installa le librerie
+        run: pip install -r requirements.txt
+
+      - name: Controlla che la lettura delle pagine funzioni
+        run: python -m pytest -q tests
+
+      - name: Leggi il portale FITeT e rigenera il sito
+        run: python aggiorna.py
+
+      - name: Salva i risultati nel progetto
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs cache
+          git commit -m "Aggiornamento calendario $(TZ=Europe/Rome date '+%d/%m/%Y %H:%M')" || echo "Nessuna modifica"
+          git push
+
+      - name: Prepara il sito
+        uses: actions/configure-pages@v5
+
+      - name: Carica il sito
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+
+      - name: Pubblica il sito
+        id: pubblica
+        uses: actions/deploy-pages@v4
