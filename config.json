@@ -1,0 +1,31 @@
+{
+  "societa": {
+    "codice_albo": "437",
+    "nome": "CUS Torino",
+    "nome_breve": "CUS"
+  },
+  "titolo_pagina": "CUS Torino · Tennistavolo",
+  "sottotitolo_pagina": "Campionati a squadre FITeT, serie nazionali e regionali Piemonte",
+
+  "campionati_nazionali": true,
+  "categorie_nazionali_escluse": ["Supercoppa", "Coppa delle Regioni"],
+  "regioni": [2],
+
+  "ordine_serie": ["B1", "C1", "C2", "D1", "D2", "D3", "C ♀", "A2 ♿", "M. A2", "M. C", "C.I."],
+
+  "pausa_tra_richieste_secondi": 1.0,
+  "rileggi_schede_squadre_ogni_giorni": 7,
+  "durata_incontro_ore": 3,
+
+  "correzioni_testi": {
+    "Istituto Vittorinio": "Istituto Vittorini",
+    "Istituti Vittorini": "Istituto Vittorini",
+    "Plazzetto dello Sport": "Palazzetto dello Sport",
+    "Palazzo Asssociazioni": "Palazzo Associazioni",
+    "A.s.d. T.t. Enjoy": "A.S.D. T.T. Enjoy",
+    "vial CLN 53": "Via CLN 53",
+    "via CLN 53": "Via CLN 53",
+    "Via C.N.L., 53": "Via CLN 53",
+    "Corso Allamano 130, ingresso strada del Barocchio 27": "Corso Allamano 130 (ingresso Strada del Barocchio 27)"
+  }
+}
