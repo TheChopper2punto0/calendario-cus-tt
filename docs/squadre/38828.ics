@@ -1,0 +1,167 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Calendario squadre FITeT//IT
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:CUS B D1 (Gir. B)
+X-WR-TIMEZONE:Europe/Rome
+REFRESH-INTERVAL;VALUE=DURATION:PT12H
+X-PUBLISHED-TTL:PT12H
+BEGIN:VTIMEZONE
+TZID:Europe/Rome
+BEGIN:DAYLIGHT
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0200
+TZNAME:CEST
+DTSTART:19700329T020000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:+0200
+TZOFFSETTO:+0100
+TZNAME:CET
+DTSTART:19701025T030000
+RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:7020883e7f35ba4bd4931229865600bd@fitet-437
+DTSTAMP:20261013T152143Z
+DTSTART;TZID=Europe/Rome:20261007T203000
+DTEND;TZID=Europe/Rome:20261007T233000
+SUMMARY:D1 · CUS B – TT. Isola d'Asti Robur
+LOCATION:Istituto Vittorini\, Corso Allamano 130 (ingresso Strada del Baroc
+ chio 27)\, Grugliasco
+DESCRIPTION:Serie D1 Gir. B · 1ª giornata andata (casa)\nRisultato: 6-1\n
+ Formazione CUS B: Senes Mattia\, Giai Claudio\, Alberizia Pasquale Luca\, 
+ Spiezio Giuseppe\nFonte: Portale Risultati FITeT (salvo variazioni)
+END:VEVENT
+BEGIN:VEVENT
+UID:4375b9bf235825cf6e6c8aa60d28708f@fitet-437
+DTSTAMP:20261013T152143Z
+DTSTART;TZID=Europe/Rome:20261014T203000
+DTEND;TZID=Europe/Rome:20261014T233000
+SUMMARY:D1 · CUS B – ASD area 172 Savigliano automobili
+LOCATION:Istituto Vittorini\, Corso Allamano 130 (ingresso Strada del Baroc
+ chio 27)\, Grugliasco
+DESCRIPTION:Serie D1 Gir. B · 2ª giornata andata (casa)\nFormazione CUS B
+ : Senes Mattia\, Giai Claudio\, Alberizia Pasquale Luca\, Spiezio Giuseppe
+ \nFonte: Portale Risultati FITeT (salvo variazioni)
+END:VEVENT
+BEGIN:VEVENT
+UID:b0348c4387b4de9cc9447c9f19c392f1@fitet-437
+DTSTAMP:20261013T152143Z
+DTSTART;TZID=Europe/Rome:20261105T210000
+DTEND;TZID=Europe/Rome:20261106T000000
+SUMMARY:D1 · ASD TT GASP Moncalieri B – CUS B
+LOCATION:Imp. Sportivo Palablu\, Piazza Brennero 3\, Moncalieri
+DESCRIPTION:Serie D1 Gir. B · 3ª giornata andata (trasferta)\nFormazione 
+ CUS B: Senes Mattia\, Giai Claudio\, Alberizia Pasquale Luca\, Spiezio Giu
+ seppe\nFonte: Portale Risultati FITeT (salvo variazioni)
+END:VEVENT
+BEGIN:VEVENT
+UID:f1c9850864a13352c3c15889d80cf1ea@fitet-437
+DTSTAMP:20261013T152143Z
+DTSTART;TZID=Europe/Rome:20261113T204500
+DTEND;TZID=Europe/Rome:20261113T234500
+SUMMARY:D1 · TT.CRDC TORINO S – CUS B
+LOCATION:Palestra CRDC Torino\, Corso Sicilia\, 12\, Torino
+DESCRIPTION:Serie D1 Gir. B · 4ª giornata andata (trasferta)\nFormazione 
+ CUS B: Senes Mattia\, Giai Claudio\, Alberizia Pasquale Luca\, Spiezio Giu
+ seppe\nFonte: Portale Risultati FITeT (salvo variazioni)
+END:VEVENT
+BEGIN:VEVENT
+UID:9b1bdc02d23f8385ad8c7066a9635586@fitet-437
+DTSTAMP:20261013T152143Z
+DTSTART;TZID=Europe/Rome:20261118T203000
+DTEND;TZID=Europe/Rome:20261118T233000
+SUMMARY:D1 · CUS B – TT GS PORTE B
+LOCATION:Istituto Vittorini\, Corso Allamano 130 (ingresso Strada del Baroc
+ chio 27)\, Grugliasco
+DESCRIPTION:Serie D1 Gir. B · 5ª giornata andata (casa)\nFormazione CUS B
+ : Senes Mattia\, Giai Claudio\, Alberizia Pasquale Luca\, Spiezio Giuseppe
+ \nFonte: Portale Risultati FITeT (salvo variazioni)
+END:VEVENT
+BEGIN:VEVENT
+UID:d39dce00f7362a867b8455c83cf47a6e@fitet-437
+DTSTAMP:20261013T152143Z
+DTSTART;TZID=Europe/Rome:20261216T203000
+DTEND;TZID=Europe/Rome:20261216T233000
+SUMMARY:D1 · CUS B – TT ALBA A
+LOCATION:Istituto Vittorini\, Corso Allamano 130 (ingresso Strada del Baroc
+ chio 27)\, Grugliasco
+DESCRIPTION:Serie D1 Gir. B · 7ª giornata andata (casa)\nFormazione CUS B
+ : Senes Mattia\, Giai Claudio\, Alberizia Pasquale Luca\, Spiezio Giuseppe
+ \nFonte: Portale Risultati FITeT (salvo variazioni)
+END:VEVENT
+BEGIN:VEVENT
+UID:d63634204a7aa1a76d4891a7ece000e8@fitet-437
+DTSTAMP:20261013T152143Z
+DTSTART;TZID=Europe/Rome:20270115T210000
+DTEND;TZID=Europe/Rome:20270116T000000
+SUMMARY:D1 · TT. Isola d'Asti Robur – CUS B
+LOCATION:Centro Sportivo V Bellangero\, Via monti 49\, Asti
+DESCRIPTION:Serie D1 Gir. B · 1ª giornata ritorno (trasferta)\nFormazione
+  CUS B: Senes Mattia\, Giai Claudio\, Alberizia Pasquale Luca\, Spiezio Gi
+ useppe\nFonte: Portale Risultati FITeT (salvo variazioni)
+END:VEVENT
+BEGIN:VEVENT
+UID:5205a963d15b88fc363abe82237f08d3@fitet-437
+DTSTAMP:20261013T152143Z
+DTSTART;TZID=Europe/Rome:20270128T204500
+DTEND;TZID=Europe/Rome:20270128T234500
+SUMMARY:D1 · ASD area 172 Savigliano automobili – CUS B
+LOCATION:Palestra comunale\, Via Tholosan 29\, Savigliano
+DESCRIPTION:Serie D1 Gir. B · 2ª giornata ritorno (trasferta)\nFormazione
+  CUS B: Senes Mattia\, Giai Claudio\, Alberizia Pasquale Luca\, Spiezio Gi
+ useppe\nFonte: Portale Risultati FITeT (salvo variazioni)
+END:VEVENT
+BEGIN:VEVENT
+UID:54075c553adbcb73658ea382e6b45c33@fitet-437
+DTSTAMP:20261013T152143Z
+DTSTART;TZID=Europe/Rome:20270203T203000
+DTEND;TZID=Europe/Rome:20270203T233000
+SUMMARY:D1 · CUS B – ASD TT GASP Moncalieri B
+LOCATION:Istituto Vittorini\, Corso Allamano 130 (ingresso Strada del Baroc
+ chio 27)\, Grugliasco
+DESCRIPTION:Serie D1 Gir. B · 3ª giornata ritorno (casa)\nFormazione CUS 
+ B: Senes Mattia\, Giai Claudio\, Alberizia Pasquale Luca\, Spiezio Giusepp
+ e\nFonte: Portale Risultati FITeT (salvo variazioni)
+END:VEVENT
+BEGIN:VEVENT
+UID:55abb5c0cb961019ff763b764b523394@fitet-437
+DTSTAMP:20261013T152143Z
+DTSTART;TZID=Europe/Rome:20270217T203000
+DTEND;TZID=Europe/Rome:20270217T233000
+SUMMARY:D1 · CUS B – TT.CRDC TORINO S
+LOCATION:Istituto Vittorini\, Corso Allamano 130 (ingresso Strada del Baroc
+ chio 27)\, Grugliasco
+DESCRIPTION:Serie D1 Gir. B · 4ª giornata ritorno (casa)\nFormazione CUS 
+ B: Senes Mattia\, Giai Claudio\, Alberizia Pasquale Luca\, Spiezio Giusepp
+ e\nFonte: Portale Risultati FITeT (salvo variazioni)
+END:VEVENT
+BEGIN:VEVENT
+UID:36ce2b1c66e71d001fdd2b05f6b8fab3@fitet-437
+DTSTAMP:20261013T152143Z
+DTSTART;TZID=Europe/Rome:20270305T210000
+DTEND;TZID=Europe/Rome:20270306T000000
+SUMMARY:D1 · TT GS PORTE B – CUS B
+LOCATION:Centro sportivo Rinaldo Bontempi\, Via Martellotto localita Malann
+ aggio\, Porte
+DESCRIPTION:Serie D1 Gir. B · 5ª giornata ritorno (trasferta)\nFormazione
+  CUS B: Senes Mattia\, Giai Claudio\, Alberizia Pasquale Luca\, Spiezio Gi
+ useppe\nFonte: Portale Risultati FITeT (salvo variazioni)
+END:VEVENT
+BEGIN:VEVENT
+UID:04ca8965045b4ea2c57b8eb8d72f0f4d@fitet-437
+DTSTAMP:20261013T152143Z
+DTSTART;TZID=Europe/Rome:20270416T210000
+DTEND;TZID=Europe/Rome:20270417T000000
+SUMMARY:D1 · TT ALBA A – CUS B
+LOCATION:PalaShuttle Montessori palestra scuola elementare\, Via San Pio V 
+ \, 9\, Alba
+DESCRIPTION:Serie D1 Gir. B · 7ª giornata ritorno (trasferta)\nFormazione
+  CUS B: Senes Mattia\, Giai Claudio\, Alberizia Pasquale Luca\, Spiezio Gi
+ useppe\nFonte: Portale Risultati FITeT (salvo variazioni)
+END:VEVENT
+END:VCALENDAR

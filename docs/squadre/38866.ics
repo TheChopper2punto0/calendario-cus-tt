@@ -1,0 +1,169 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Calendario squadre FITeT//IT
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:CUS C D2 (Gir. B)
+X-WR-TIMEZONE:Europe/Rome
+REFRESH-INTERVAL;VALUE=DURATION:PT12H
+X-PUBLISHED-TTL:PT12H
+BEGIN:VTIMEZONE
+TZID:Europe/Rome
+BEGIN:DAYLIGHT
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0200
+TZNAME:CEST
+DTSTART:19700329T020000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:+0200
+TZOFFSETTO:+0100
+TZNAME:CET
+DTSTART:19701025T030000
+RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:3fa5d32bc6c31cadf86769a5ae6da6a2@fitet-437
+DTSTAMP:20261013T152143Z
+DTSTART;TZID=Europe/Rome:20261008T203000
+DTEND;TZID=Europe/Rome:20261008T233000
+SUMMARY:D2 · CUS C – PONGISTISERI Giaveno
+LOCATION:Palazzetto dello Sport\, Via CLN 53\, Grugliasco
+DESCRIPTION:Serie D2 Gir. B · 1ª giornata andata (casa)\nRisultato: 5-2\n
+ Formazione CUS C: Schiavone Valerio\, Formichetti Leonardo\, Ameduri Fabri
+ zio\nFonte: Portale Risultati FITeT (salvo variazioni)
+END:VEVENT
+BEGIN:VEVENT
+UID:7cdac21becaa35a5288a74c5bedb90b7@fitet-437
+DTSTAMP:20261013T152143Z
+DTSTART;TZID=Europe/Rome:20261015T210000
+DTEND;TZID=Europe/Rome:20261016T000000
+SUMMARY:D2 · A4 Verzuolo SCOTTA – CUS C
+LOCATION:Centro Tennistavolo - Palestra Comunale\, Via XXV Aprile 9\, Verzu
+ olo
+DESCRIPTION:Serie D2 Gir. B · 2ª giornata andata (trasferta)\nFormazione 
+ CUS C: Schiavone Valerio\, Formichetti Leonardo\, Ameduri Fabrizio\nFonte:
+  Portale Risultati FITeT (salvo variazioni)
+END:VEVENT
+BEGIN:VEVENT
+UID:94bf509b121b91a27578bcf1fd2f2ac7@fitet-437
+DTSTAMP:20261013T152143Z
+DTSTART;TZID=Europe/Rome:20261020T203000
+DTEND;TZID=Europe/Rome:20261020T233000
+SUMMARY:D2 · CUS C – CUS A
+LOCATION:Istituto Vittorini\, Corso Allamano 130 (ingresso Strada del Baroc
+ chio 27)\, Grugliasco
+DESCRIPTION:Serie D2 Gir. B · 7ª giornata andata (derby)\nFormazione CUS 
+ C: Schiavone Valerio\, Formichetti Leonardo\, Ameduri Fabrizio\nFormazione
+  CUS A: Abate Miriam\, Vista Fedele\, Parmentola Salvatore\nFonte: Portale
+  Risultati FITeT (salvo variazioni)
+END:VEVENT
+BEGIN:VEVENT
+UID:618dd3f9457e6f3a14e823a20604fcf0@fitet-437
+DTSTAMP:20261013T152143Z
+DTSTART;TZID=Europe/Rome:20261105T203000
+DTEND;TZID=Europe/Rome:20261105T233000
+SUMMARY:D2 · CUS C – ASD TT GASP Moncalieri A
+LOCATION:Istituto Vittorini\, Corso Allamano 130 (ingresso Strada del Baroc
+ chio 27)\, Grugliasco
+DESCRIPTION:Serie D2 Gir. B · 3ª giornata andata (casa)\nFormazione CUS C
+ : Schiavone Valerio\, Formichetti Leonardo\, Ameduri Fabrizio\nFonte: Port
+ ale Risultati FITeT (salvo variazioni)
+END:VEVENT
+BEGIN:VEVENT
+UID:245a93ebcd4ee6473adff8a832e5900d@fitet-437
+DTSTAMP:20261013T152143Z
+DTSTART;TZID=Europe/Rome:20261113T210000
+DTEND;TZID=Europe/Rome:20261114T000000
+SUMMARY:D2 · TT GS PORTE C – CUS C
+LOCATION:Centro sportivo Rinaldo Bontempi\, Via Martellotto localita Malann
+ aggio\, Porte
+DESCRIPTION:Serie D2 Gir. B · 4ª giornata andata (trasferta)\nFormazione 
+ CUS C: Schiavone Valerio\, Formichetti Leonardo\, Ameduri Fabrizio\nFonte:
+  Portale Risultati FITeT (salvo variazioni)
+END:VEVENT
+BEGIN:VEVENT
+UID:7eb1d781a4ffb376e31f21753b7a0797@fitet-437
+DTSTAMP:20261013T152143Z
+DTSTART;TZID=Europe/Rome:20261210T203000
+DTEND;TZID=Europe/Rome:20261210T233000
+SUMMARY:D2 · TT CRDC TORINO M – CUS C
+LOCATION:Palestra CRDC Torino\, Corso Sicilia\, 12\, Torino
+DESCRIPTION:Serie D2 Gir. B · 6ª giornata andata (trasferta)\nFormazione 
+ CUS C: Schiavone Valerio\, Formichetti Leonardo\, Ameduri Fabrizio\nFonte:
+  Portale Risultati FITeT (salvo variazioni)
+END:VEVENT
+BEGIN:VEVENT
+UID:85f397cabf6df2d79fd8ab7bdf86ce95@fitet-437
+DTSTAMP:20261013T152143Z
+DTSTART;TZID=Europe/Rome:20270115T200000
+DTEND;TZID=Europe/Rome:20270115T230000
+SUMMARY:D2 · PONGISTISERI Giaveno – CUS C
+LOCATION:Scuola A. Monti di Ponte Pietra\, Via Sergio De Vitis 15\, Giaveno
+DESCRIPTION:Serie D2 Gir. B · 1ª giornata ritorno (trasferta)\nFormazione
+  CUS C: Schiavone Valerio\, Formichetti Leonardo\, Ameduri Fabrizio\nFonte
+ : Portale Risultati FITeT (salvo variazioni)
+END:VEVENT
+BEGIN:VEVENT
+UID:d75489cb38dd3a95e9190b09bc9dfa41@fitet-437
+DTSTAMP:20261013T152143Z
+DTSTART;TZID=Europe/Rome:20270119T203000
+DTEND;TZID=Europe/Rome:20270119T233000
+SUMMARY:D2 · CUS A – CUS C
+LOCATION:Istituto Vittorini\, Corso Allamano 130 (ingresso Strada del Baroc
+ chio 27)\, Grugliasco
+DESCRIPTION:Serie D2 Gir. B · 7ª giornata ritorno (derby)\nFormazione CUS
+  A: Abate Miriam\, Vista Fedele\, Parmentola Salvatore\nFormazione CUS C: 
+ Schiavone Valerio\, Formichetti Leonardo\, Ameduri Fabrizio\nFonte: Portal
+ e Risultati FITeT (salvo variazioni)
+END:VEVENT
+BEGIN:VEVENT
+UID:e83ffa5e566d48385208722e2b812bdf@fitet-437
+DTSTAMP:20261013T152143Z
+DTSTART;TZID=Europe/Rome:20270128T203000
+DTEND;TZID=Europe/Rome:20270128T233000
+SUMMARY:D2 · CUS C – A4 Verzuolo SCOTTA
+LOCATION:Istituto Vittorini\, Corso Allamano 130 (ingresso Strada del Baroc
+ chio 27)\, Grugliasco
+DESCRIPTION:Serie D2 Gir. B · 2ª giornata ritorno (casa)\nFormazione CUS 
+ C: Schiavone Valerio\, Formichetti Leonardo\, Ameduri Fabrizio\nFonte: Por
+ tale Risultati FITeT (salvo variazioni)
+END:VEVENT
+BEGIN:VEVENT
+UID:bc6b2b0cccb12d23e176771e894559ea@fitet-437
+DTSTAMP:20261013T152143Z
+DTSTART;TZID=Europe/Rome:20270204T210000
+DTEND;TZID=Europe/Rome:20270205T000000
+SUMMARY:D2 · ASD TT GASP Moncalieri A – CUS C
+LOCATION:Imp. Sportivo Palablu\, Piazza Brennero 3\, Moncalieri
+DESCRIPTION:Serie D2 Gir. B · 3ª giornata ritorno (trasferta)\nFormazione
+  CUS C: Schiavone Valerio\, Formichetti Leonardo\, Ameduri Fabrizio\nFonte
+ : Portale Risultati FITeT (salvo variazioni)
+END:VEVENT
+BEGIN:VEVENT
+UID:918abc25e4ae13284949818eb82e41c6@fitet-437
+DTSTAMP:20261013T152143Z
+DTSTART;TZID=Europe/Rome:20270218T203000
+DTEND;TZID=Europe/Rome:20270218T233000
+SUMMARY:D2 · CUS C – TT GS PORTE C
+LOCATION:Istituto Vittorini\, Corso Allamano 130 (ingresso Strada del Baroc
+ chio 27)\, Grugliasco
+DESCRIPTION:Serie D2 Gir. B · 4ª giornata ritorno (casa)\nFormazione CUS 
+ C: Schiavone Valerio\, Formichetti Leonardo\, Ameduri Fabrizio\nFonte: Por
+ tale Risultati FITeT (salvo variazioni)
+END:VEVENT
+BEGIN:VEVENT
+UID:7969892fb66654af3c4556597c2912bb@fitet-437
+DTSTAMP:20261013T152143Z
+DTSTART;TZID=Europe/Rome:20270408T203000
+DTEND;TZID=Europe/Rome:20270408T233000
+SUMMARY:D2 · CUS C – TT CRDC TORINO M
+LOCATION:Istituto Vittorini\, Corso Allamano 130 (ingresso Strada del Baroc
+ chio 27)\, Grugliasco
+DESCRIPTION:Serie D2 Gir. B · 6ª giornata ritorno (casa)\nFormazione CUS 
+ C: Schiavone Valerio\, Formichetti Leonardo\, Ameduri Fabrizio\nFonte: Por
+ tale Risultati FITeT (salvo variazioni)
+END:VEVENT
+END:VCALENDAR
