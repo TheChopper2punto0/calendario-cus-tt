@@ -43,6 +43,9 @@ header.top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:spac
 .mark{height:60px;width:auto;flex:none;display:block}
 h1{font-family:var(--display);font-weight:700;font-size:clamp(1.6rem,4.5vw,2.2rem);line-height:1;margin:0;letter-spacing:.01em;text-wrap:balance}
 .sub{color:var(--muted);font-size:.9rem;margin-top:4px}
+.header-tools{display:flex;align-items:center;gap:10px;margin-left:auto}
+.language-control{display:flex;align-items:center;gap:7px;color:var(--muted);font-size:.85rem}
+.language-control select{border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:7px 9px;max-width:100%;cursor:pointer}
 .stats{display:flex;gap:18px;font-variant-numeric:tabular-nums}
 .stat b{display:block;font-family:var(--display);font-size:1.6rem;line-height:1;font-weight:600}
 .stat span{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
@@ -106,6 +109,9 @@ h1{font-family:var(--display);font-weight:700;font-size:clamp(1.6rem,4.5vw,2.2re
 .past{opacity:.72}
 .empty{padding:28px;text-align:center;color:var(--muted);background:var(--surface);border:1px dashed var(--line);border-radius:var(--r)}
 @media (max-width:640px){
+  header.top{align-items:flex-start}
+  .header-tools{margin-left:0;width:100%;order:2}
+  .stats{width:100%;order:3;justify-content:space-between;gap:10px}
   .match{grid-template-columns:58px minmax(0,1fr);padding:10px 12px}
   .venue{grid-column:2}
   .chip{padding:4px 10px}
@@ -140,10 +146,20 @@ footer a{color:var(--muted)}
         <div class="sub">__SOTTOTITOLO__</div>
       </div>
     </div>
+    <div class="header-tools">
+      <label class="language-control">
+        <span data-i18n="language">Lingua</span>
+        <select id="language-select" aria-label="Language">
+          <option value="it">🇮🇹 Italiano</option>
+          <option value="en">🇬🇧 English</option>
+          <option value="zh">🇨🇳 简体中文</option>
+        </select>
+      </label>
+    </div>
     <div class="stats">
-      <div class="stat"><b id="st-teams">0</b><span>squadre</span></div>
-      <div class="stat"><b id="st-matches">0</b><span>incontri</span></div>
-      <div class="stat"><b id="st-left">0</b><span>da giocare</span></div>
+      <div class="stat"><b id="st-teams">0</b><span data-i18n="teamsStat">squadre</span></div>
+      <div class="stat"><b id="st-matches">0</b><span data-i18n="matchesStat">incontri</span></div>
+      <div class="stat"><b id="st-left">0</b><span data-i18n="upcomingStat">da giocare</span></div>
     </div>
   </header>
 
@@ -152,17 +168,17 @@ footer a{color:var(--muted)}
   <section class="cal" aria-label="Aggiungi al tuo calendario">
     <span class="lbl" id="cal-lbl"></span>
     <div class="btns">
-      <a class="btn pri" id="cal-sub" href="#" title="iPhone, iPad, Mac e Outlook">Aggiungi al calendario</a>
+      <a class="btn pri" id="cal-sub" href="#" title="iPhone, iPad, Mac e Outlook" data-i18n="addCalendar">Aggiungi al calendario</a>
       <a class="btn" id="cal-google" href="#" target="_blank" rel="noopener">Google Calendar</a>
     </div>
   </section>
 
-  <div class="filters" role="region" aria-label="Filtri">
+  <div class="filters" role="region" aria-label="Filtri" data-i18n-aria="filters">
     <div class="row" id="chips"></div>
     <div class="row">
       <select class="sel" id="team" aria-label="Squadra"></select>
-      <label class="tog"><input type="checkbox" id="home"> Solo in casa</label>
-      <label class="tog"><input type="checkbox" id="past"> Mostra giocate</label>
+      <label class="tog"><input type="checkbox" id="home"> <span data-i18n="homeOnly">Solo in casa</span></label>
+      <label class="tog"><input type="checkbox" id="past"> <span data-i18n="showPlayed">Mostra giocate</span></label>
       <span class="count" id="count"></span>
     </div>
   </div>
@@ -170,12 +186,12 @@ footer a{color:var(--muted)}
   <main id="agenda"></main>
 
   <section>
-    <h2>Le squadre</h2>
-    <p class="h2sub">Formazioni iscritte sul portale. Tocca una squadra per vedere solo le sue partite.</p>
+    <h2 data-i18n="teamsHeading">Le squadre</h2>
+    <p class="h2sub" data-i18n="teamsHelp">Formazioni iscritte sul portale. Tocca una squadra per vedere solo le sue partite.</p>
   </section>
   <div class="squads" id="squads"></div>
 
-  <footer><p id="foot"></p><p><a id="cal-dl" href="calendario.ics" download>Scarica una copia delle partite</a></p></footer>
+  <footer><p id="foot"></p><p><a id="cal-dl" href="calendario.ics" download data-i18n="downloadCalendar">Scarica una copia delle partite</a></p></footer>
 </div>
 
 <script>
@@ -188,45 +204,119 @@ const now = new Date();
 const startToday = new Date(now.getFullYear(),now.getMonth(),now.getDate());
 const isPast = m => !!m.r || m.date < startToday;
 
-const ICONS = {
-  '♿':'<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-label="carrozzina"><circle cx="12.5" cy="3.6" r="2.1" fill="currentColor" stroke="none"/><path d="M11.5 7.6v6h5.6l2.6 5.6"/><path d="M11.5 10.4h4.8"/><path d="M8.6 10.6a5.6 5.6 0 1 0 7.6 7.4"/></svg>',
-  '♀':'<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" aria-label="femminile"><circle cx="12" cy="8.6" r="5.4"/><path d="M12 14v8M8.6 18.6h6.8"/></svg>'
+const I18N = {
+  it: {
+    language:"Lingua", teamsStat:"squadre", matchesStat:"incontri", upcomingStat:"da giocare",
+    nextMatch:"Prossimo turno", addCalendar:"Aggiungi al calendario",
+    filters:"Filtri", team:"Squadra", allTeams:"Tutte le squadre", allSeries:"Tutte",
+    homeOnly:"Solo in casa", showPlayed:"Mostra giocate", matchesCount:"incontri",
+    playedHidden:"già giocati nascosti", noMatches:"Nessun incontro con questi filtri. Prova ad attivare «Mostra giocate» o a scegliere un'altra serie.",
+    today:"Oggi", round:"giornata", roundReturn:"ritorno", roundFirst:"andata",
+    derby:"Derby", concentration:"Concentramento", home:"Casa", away:"Fuori",
+    won:"Vinta", lost:"Persa", venue:"Campo gara", venueTbd:"Sede indicata nei comunicati FITeT",
+    calendarTeamPrefix:"Partite di", calendarTeamSuffix:"nel calendario del telefono, sempre aggiornate",
+    calendarAll:"Tutte le partite nel calendario del telefono, sempre aggiornate. Scegli una squadra per aggiungere solo le sue.",
+    nextRound:"Prossima:", noNext:"Nessuna partita in programma", formationMissing:"Formazione non indicata",
+    teamsHeading:"Le squadre", teamsHelp:"Formazioni iscritte sul portale. Tocca una squadra per vedere solo le sue partite.",
+    downloadCalendar:"Scarica una copia delle partite",
+    footerSource:"Dati dal Portale Risultati FITeT, aggiornati automaticamente ogni notte.",
+    lastUpdated:"Ultimo aggiornamento:", timeNote:"Gli orari sono quelli pubblicati, salvo variazioni concordate tra le società.",
+    venueNote:"Campo gara: quello principale della squadra di casa, o quello di riserva quando il calendario lo indica.",
+    ariaCalendar:"Aggiungi al tuo calendario", ariaNext:"Prossimo turno",
+    result:"Risultato", series:"Serie"
+  },
+  en: {
+    language:"Language", teamsStat:"teams", matchesStat:"matches", upcomingStat:"upcoming",
+    nextMatch:"Next matchday", addCalendar:"Add to calendar",
+    filters:"Filters", team:"Team", allTeams:"All teams", allSeries:"All",
+    homeOnly:"Home matches only", showPlayed:"Show played matches", matchesCount:"matches",
+    playedHidden:"played matches hidden", noMatches:"No matches match these filters. Try showing played matches or selecting another series.",
+    today:"Today", round:"round", roundReturn:"second leg", roundFirst:"first leg",
+    derby:"Derby", concentration:"Tournament venue", home:"Home", away:"Away",
+    won:"Won", lost:"Lost", venue:"Venue", venueTbd:"Venue announced by FITeT",
+    calendarTeamPrefix:"Matches for", calendarTeamSuffix:"in your phone calendar, kept up to date",
+    calendarAll:"All matches in your phone calendar, kept up to date. Select a team to add only its matches.",
+    nextRound:"Next:", noNext:"No upcoming matches", formationMissing:"Line-up not provided",
+    teamsHeading:"Teams", teamsHelp:"Teams registered on the portal. Select a team to view only its matches.",
+    downloadCalendar:"Download a copy of the matches",
+    footerSource:"Data from the FITeT Results Portal, automatically updated every night.",
+    lastUpdated:"Last updated:", timeNote:"Times are those published on the portal, unless clubs agree on changes.",
+    venueNote:"Venue: the home team's primary venue, or its backup venue when indicated in the schedule.",
+    ariaCalendar:"Add to your calendar", ariaNext:"Next matchday",
+    result:"Result", series:"Series"
+  },
+  zh: {
+    language:"语言", teamsStat:"球队", matchesStat:"比赛场次", upcomingStat:"未开始",
+    nextMatch:"下一轮比赛", addCalendar:"添加到日历",
+    filters:"筛选", team:"球队", allTeams:"所有球队", allSeries:"全部",
+    homeOnly:"仅显示主场比赛", showPlayed:"显示已结束比赛", matchesCount:"场比赛",
+    playedHidden:"场已结束比赛已隐藏", noMatches:"没有符合这些筛选条件的比赛。请尝试显示已结束比赛，或选择其他联赛。",
+    today:"今天", round:"轮", roundReturn:"第二回合", roundFirst:"第一回合",
+    derby:"同俱乐部对阵", concentration:"集中赛会制", home:"主场", away:"客场",
+    won:"获胜", lost:"失利", venue:"比赛场馆", venueTbd:"场馆信息请查看 FITeT 公告",
+    calendarTeamPrefix:"球队", calendarTeamSuffix:"的比赛将同步到手机日历",
+    calendarAll:"将全部比赛添加到手机日历并保持更新。选择球队即可只订阅该队的比赛。",
+    nextRound:"下一场：", noNext:"暂无后续比赛", formationMissing:"暂无阵容信息",
+    teamsHeading:"球队列表", teamsHelp:"以下球队已在官网登记。点击球队即可只查看该队的比赛。",
+    downloadCalendar:"下载比赛日历文件",
+    footerSource:"数据来自 FITeT 比赛结果门户，每晚自动更新。",
+    lastUpdated:"最后更新时间：", timeNote:"比赛时间以官网公布为准，除非俱乐部之间另有协商。",
+    venueNote:"比赛场馆为主队的主要场馆；如赛程注明，则使用备用场馆。",
+    ariaCalendar:"添加到日历", ariaNext:"下一轮比赛",
+    result:"比赛结果", series:"联赛"
+  }
 };
+
+let lang = "it";
+const tr = key => (I18N[lang] && I18N[lang][key]) || I18N.it[key] || key;
+const locale = () => ({it:"it-IT", en:"en-GB", zh:"zh-CN"}[lang] || "it-IT");
 const esc = s => String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const ICONS = {
+  '♿':'<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-label="accessible"><circle cx="12.5" cy="3.6" r="2.1" fill="currentColor" stroke="none"/><path d="M11.5 7.6v6h5.6l2.6 5.6"/><path d="M11.5 10.4h4.8"/><path d="M8.6 10.6a5.6 5.6 0 1 0 7.6 7.4"/></svg>',
+  '♀':'<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" aria-label="women"><circle cx="12" cy="8.6" r="5.4"/><path d="M12 14v8M8.6 18.6h6.8"/></svg>'
+};
 const serHtml = s => esc(s).replace(/[♿♀]/g, ch => ICONS[ch]);
 const serTxt = s => s.replace(' ♿',' paralimpica').replace(' ♀',' femminile');
-
-const fmtDay = new Intl.DateTimeFormat('it-IT',{weekday:'long',day:'numeric',month:'long'});
-const fmtMonth = new Intl.DateTimeFormat('it-IT',{month:'long',year:'numeric'});
-const fmtShort = new Intl.DateTimeFormat('it-IT',{weekday:'short',day:'numeric',month:'short'});
+const fmtDay = d => new Intl.DateTimeFormat(locale(),{weekday:'long',day:'numeric',month:'long'}).format(d);
+const fmtMonth = d => new Intl.DateTimeFormat(locale(),{month:'long',year:'numeric'}).format(d);
+const fmtShort = d => new Intl.DateTimeFormat(locale(),{weekday:'short',day:'numeric',month:'short'}).format(d);
 const hhmm = m => m.allDay ? '—' : m.date.toTimeString().slice(0,5).replace(':','.');
 const dayKey = d => d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
 const name = (x,isC) => isC ? T[x].lab : x;
 
 function side(m, focus){
-  if(m.hc && m.ac) return ['derby','Derby'];
-  if(m.conc) return ['conc','Concentramento'];
+  if(m.hc && m.ac) return ['derby',tr('derby')];
+  if(m.conc) return ['conc',tr('concentration')];
   const home = focus ? m.h===focus : m.hc;
-  return home ? ['casa','Casa'] : ['trasf','Fuori'];
+  return home ? ['casa',tr('home')] : ['trasf',tr('away')];
 }
 function outcome(m){
   if(!m.r || (m.hc&&m.ac)) return null;
   const [a,b] = m.r.split('-').map(Number);
   if(a===b) return null;
   const cusWon = m.hc ? a>b : b>a;
-  return cusWon ? ['w','Vinta'] : ['l','Persa'];
+  return cusWon ? ['w',tr('won')] : ['l',tr('lost')];
 }
 const mapsUrl = v => 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(v.n+', '+v.s+', '+v.city);
-const fase = m => m.f==='A' ? `${m.g}ª andata` : m.f==='R' ? `${m.g}ª ritorno` : (m.g ? `${m.g}ª giornata` : '');
+const fase = m => m.f==='A' ? `${m.g}ª ${tr('roundFirst')}` : m.f==='R' ? `${m.g}ª ${tr('roundReturn')}` : (m.g ? `${m.g}ª ${tr('round')}` : '');
 
-// ---- stato filtri (ricordato nel browser)
+// ---- Stato filtri: saved in browser
 let st = {ser:[], team:'', home:false, past:false};
 try{ const s = JSON.parse(localStorage.getItem('cal-filtri')||'null'); if(s) st = {...st, ...s}; }catch(e){}
 st.ser = st.ser.filter(s=>SERIES.includes(s)); if(st.team && !T[st.team]) st.team='';
 const save = ()=>{ try{ localStorage.setItem('cal-filtri', JSON.stringify(st)); }catch(e){} };
 
 const chips = document.getElementById('chips');
-chips.innerHTML = `<button class="chip" data-s="">Tutte</button>` + SERIES.map(s=>`<button class="chip" data-s="${esc(s)}">${serHtml(s)}</button>`).join('');
+const sel = document.getElementById('team');
+const homeEl = document.getElementById('home'), pastEl = document.getElementById('past');
+
+function buildFilterControls(){
+  chips.innerHTML = `<button class="chip" data-s="">${esc(tr('allSeries'))}</button>` + SERIES.map(s=>`<button class="chip" data-s="${esc(s)}">${serHtml(s)}</button>`).join('');
+  sel.innerHTML = `<option value="">${esc(tr('allTeams'))} (${DATA.teams.length})</option>` + SERIES.map(s=>{
+    const ts = DATA.teams.filter(t=>t.ser===s);
+    return `<optgroup label="${esc(tr('series'))} ${esc(serTxt(s))}">` + ts.map(t=>`<option value="${t.id}">${esc(serTxt(s))} · ${esc(t.lab)} (${esc(t.gir)})</option>`).join('') + `</optgroup>`;
+  }).join('');
+}
 chips.addEventListener('click',e=>{
   const b = e.target.closest('.chip'); if(!b) return;
   const s = b.dataset.s;
@@ -234,13 +324,7 @@ chips.addEventListener('click',e=>{
   if(st.team && st.ser.length && !st.ser.includes(T[st.team].ser)) st.team='';
   render();
 });
-const sel = document.getElementById('team');
-sel.innerHTML = `<option value="">Tutte le squadre (${DATA.teams.length})</option>` + SERIES.map(s=>{
-  const ts = DATA.teams.filter(t=>t.ser===s);
-  return `<optgroup label="Serie ${esc(serTxt(s))}">` + ts.map(t=>`<option value="${t.id}">${esc(serTxt(s))} · ${esc(t.lab)} (${esc(t.gir)})</option>`).join('') + `</optgroup>`;
-}).join('');
 sel.addEventListener('change',()=>{ st.team = sel.value; if(st.team) st.ser=[]; render(); });
-const homeEl = document.getElementById('home'), pastEl = document.getElementById('past');
 homeEl.addEventListener('change',()=>{ st.home = homeEl.checked; render(); });
 pastEl.addEventListener('change',()=>{ st.past = pastEl.checked; render(); });
 
@@ -262,18 +346,18 @@ function matchRow(m){
   const res = m.r ? `<div class="res ${oc?oc[0]:''}">${m.r.replace('-','–')}${oc?` <span class="o">${oc[1]}</span>`:''}</div>` : '';
   const v = m.v===null || m.v===undefined ? null : V[m.v];
   const venue = v ? `<a href="${mapsUrl(v)}" target="_blank" rel="noopener">${esc(v.n)}</a><span class="city">${esc(v.s)}${v.city?', '+esc(v.city):''}</span>`
-                  : (m.conc ? `Concentramento<span class="city">Sede indicata nei comunicati FITeT</span>` : '');
+                  : (m.conc ? `${esc(tr('concentration'))}<span class="city">${esc(tr('venueTbd'))}</span>` : '');
   return `<div class="match ${isPast(m)?'past':''}">
     <div><div class="tm">${hhmm(m)}</div>${m.conc?'':`<span class="side ${sc}">${sl}</span>`}</div>
     <div>
-      <div class="meta"><span class="ser">${serHtml(m.ser)}</span><span>${esc(m.gir)}</span><span>${fase(m)}</span></div>
+      <div class="meta"><span class="ser">${serHtml(m.ser)}</span><span>${esc(m.gir)}</span><span>${esc(fase(m))}</span></div>
       <div class="teams">${h}<span class="vs">vs</span>${a}</div>${res}
     </div>
     <div class="venue">${venue}</div>
   </div>`;
 }
 
-// ---- link calendario (cambiano con la squadra scelta)
+// ---- Calendar links (follow the selected team)
 const baseUrl = location.href.replace(/[#?].*$/,'').replace(/[^/]*$/,'');
 function calLinks(){
   const file = st.team ? `squadre/${st.team}.ics` : 'calendario.ics';
@@ -283,8 +367,8 @@ function calLinks(){
   document.getElementById('cal-google').href = 'https://calendar.google.com/calendar/r?cid=' + encodeURIComponent(webcal);
   document.getElementById('cal-dl').href = file;
   document.getElementById('cal-lbl').innerHTML = st.team
-    ? `Partite di <b>${serHtml(T[st.team].ser)} · ${esc(T[st.team].lab)}</b> nel calendario del telefono, sempre aggiornate`
-    : `Tutte le partite nel calendario del telefono, sempre aggiornate. Scegli una squadra per aggiungere solo le sue.`;
+    ? `${esc(tr('calendarTeamPrefix'))} <b>${serHtml(T[st.team].ser)} · ${esc(T[st.team].lab)}</b> ${esc(tr('calendarTeamSuffix'))}`
+    : esc(tr('calendarAll'));
 }
 
 function render(){
@@ -295,18 +379,18 @@ function render(){
 
   const list = filtered(st.past);
   const pastCount = filtered(true).filter(isPast).length;
-  document.getElementById('count').textContent = `${list.length} incontri` + (!st.past && pastCount ? ` · ${pastCount} già giocati nascosti` : '');
+  document.getElementById('count').textContent = `${list.length} ${tr('matchesCount')}` + (!st.past && pastCount ? ` · ${pastCount} ${tr('playedHidden')}` : '');
 
   const ag = document.getElementById('agenda');
-  if(!list.length){ ag.innerHTML = `<div class="empty">Nessun incontro con questi filtri. Prova ad attivare «Mostra giocate» o a scegliere un'altra serie.</div>`; }
+  if(!list.length){ ag.innerHTML = `<div class="empty">${esc(tr('noMatches'))}</div>`; }
   else{
     let html='', curM='', curD='', buf=[];
     const flush=()=>{ if(!buf.length) return; const d=buf[0].date; const isToday=dayKey(d)===dayKey(now);
-      html += `<div class="day"><div class="day-h"><span class="dn">${fmtDay.format(d)}</span>${isToday?'<span class="today">Oggi</span>':''}<span class="n">${buf.length} ${buf.length===1?'incontro':'incontri'}</span></div>${buf.map(matchRow).join('')}</div>`; buf=[]; };
+      html += `<div class="day"><div class="day-h"><span class="dn">${esc(fmtDay(d))}</span>${isToday?`<span class="today">${esc(tr('today'))}</span>`:''}<span class="n">${buf.length} ${esc(tr('matchesCount'))}</span></div>${buf.map(matchRow).join('')}</div>`; buf=[]; };
     for(const m of list){
-      const mk = fmtMonth.format(m.date), dk = dayKey(m.date);
+      const mk = fmtMonth(m.date), dk = dayKey(m.date);
       if(dk!==curD){ flush(); curD=dk; }
-      if(mk!==curM){ html += `<div class="month">${mk}</div>`; curM=mk; }
+      if(mk!==curM){ html += `<div class="month">${esc(mk)}</div>`; curM=mk; }
       buf.push(m);
     }
     flush();
@@ -318,33 +402,74 @@ function render(){
   if(up.length){
     const k = dayKey(up[0].date); const day = up.filter(m=>dayKey(m.date)===k);
     nx.hidden=false;
-    nx.innerHTML = `<div class="next-h"><span class="k">Prossimo turno</span><span class="d">${fmtDay.format(day[0].date)}</span></div>
-      <div class="next-list">${day.map(m=>{const v=m.v===null||m.v===undefined?null:V[m.v];return `<div class="nx"><span class="t">${hhmm(m)}</span><div class="m"><small>${serHtml(m.ser)} · ${side(m,st.team)[1]}</small>${esc(name(m.h,m.hc))} – ${esc(name(m.a,m.ac))}<small>${v?esc(v.n)+', '+esc(v.city):'Concentramento'}</small></div></div>`}).join('')}</div>`;
+    nx.innerHTML = `<div class="next-h"><span class="k">${esc(tr('nextMatch'))}</span><span class="d">${esc(fmtDay(day[0].date))}</span></div>
+      <div class="next-list">${day.map(m=>{const v=m.v===null||m.v===undefined?null:V[m.v];return `<div class="nx"><span class="t">${hhmm(m)}</span><div class="m"><small>${serHtml(m.ser)} · ${esc(side(m,st.team)[1])}</small>${esc(name(m.h,m.hc))} – ${esc(name(m.a,m.ac))}<small>${v?esc(v.n)+', '+esc(v.city):esc(tr('concentration'))}</small></div></div>`}).join('')}</div>`;
   } else nx.hidden = true;
 }
 
-document.getElementById('squads').innerHTML = DATA.teams.map(t=>{
-  const ms = M.filter(m=>m.teams.includes(t.id));
-  const nxt = ms.find(m=>!isPast(m));
-  const opp = nxt ? (nxt.h===t.id ? name(nxt.a,nxt.ac) : name(nxt.h,nxt.hc)) : '';
-  return `<button class="sq" data-id="${t.id}">
-    <div class="top"><span class="ser">${serHtml(t.ser)}</span><span class="nm">${esc(t.lab)}</span><span class="gir">${esc(t.gir)}</span></div>
-    <ul>${(t.form.length?t.form:['Formazione non indicata']).map(p=>`<li>${esc(p)}</li>`).join('')}</ul>
-    <div class="nxt">${nxt?`Prossima: <b>${fmtShort.format(nxt.date)} ${hhmm(nxt)}</b> ${nxt.h===t.id?'vs':'@'} ${esc(opp)}`:'Nessuna partita in programma'}</div>
-  </button>`;
-}).join('');
+function renderSquads(){
+  document.getElementById('squads').innerHTML = DATA.teams.map(t=>{
+    const ms = M.filter(m=>m.teams.includes(t.id));
+    const nxt = ms.find(m=>!isPast(m));
+    const opp = nxt ? (nxt.h===t.id ? name(nxt.a,nxt.ac) : name(nxt.h,nxt.hc)) : '';
+    return `<button class="sq" data-id="${t.id}">
+      <div class="top"><span class="ser">${serHtml(t.ser)}</span><span class="nm">${esc(t.lab)}</span><span class="gir">${esc(t.gir)}</span></div>
+      <ul>${(t.form.length?t.form:[tr('formationMissing')]).map(p=>`<li>${esc(p)}</li>`).join('')}</ul>
+      <div class="nxt">${nxt?`${esc(tr('nextRound'))} <b>${esc(fmtShort(nxt.date))} ${hhmm(nxt)}</b> ${nxt.h===t.id?'vs':'@'} ${esc(opp)}`:esc(tr('noNext'))}</div>
+    </button>`;
+  }).join('');
+}
 document.getElementById('squads').addEventListener('click',e=>{
   const b=e.target.closest('.sq'); if(!b) return;
   st.team=b.dataset.id; st.ser=[]; render(); window.scrollTo({top:0,behavior:'smooth'});
 });
+
+function applyStaticTranslations(){
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const key=el.dataset.i18n;
+    if(I18N[lang][key] !== undefined) el.textContent=I18N[lang][key];
+  });
+  document.querySelectorAll('[data-i18n-aria]').forEach(el=>{
+    const key=el.dataset.i18nAria;
+    if(I18N[lang][key] !== undefined) el.setAttribute('aria-label',I18N[lang][key]);
+  });
+  document.querySelectorAll('[data-i18n-title]').forEach(el=>{
+    const key=el.dataset.i18nTitle;
+    if(I18N[lang][key] !== undefined) el.setAttribute('title',I18N[lang][key]);
+  });
+  document.documentElement.lang = lang;
+  document.getElementById('cal-sub').title = lang==='it' ? 'iPhone, iPad, Mac e Outlook' : lang==='zh' ? '适用于 iPhone、iPad、Mac 和 Outlook' : 'For iPhone, iPad, Mac and Outlook';
+}
+
+function setLanguage(nextLang){
+  lang = Object.prototype.hasOwnProperty.call(I18N,nextLang) ? nextLang : 'it';
+  document.getElementById('language-select').value=lang;
+  try{localStorage.setItem('cal-lingua',lang);}catch(e){}
+  applyStaticTranslations();
+  buildFilterControls();
+  renderSquads();
+  render();
+}
+
+document.getElementById('language-select').addEventListener('change',e=>setLanguage(e.target.value));
 
 if(M.length){ const d0=M[0].date; const y = d0.getMonth()>=6 ? d0.getFullYear() : d0.getFullYear()-1;
   document.getElementById('season').textContent = `${y}/${String((y+1)%100).padStart(2,'0')}`; }
 document.getElementById('st-teams').textContent = DATA.teams.length;
 document.getElementById('st-matches').textContent = M.length;
 document.getElementById('st-left').textContent = M.filter(m=>!isPast(m)).length;
-document.getElementById('foot').innerHTML = `Dati dal Portale Risultati FITeT, aggiornati automaticamente ogni notte. Ultimo aggiornamento: ${esc(DATA.updated)}. Gli orari sono quelli pubblicati, salvo variazioni concordate tra le società. Campo gara: quello principale della squadra di casa, o quello di riserva quando il calendario lo indica.`;
-render();
+function updateFooter(){
+  const updated = DATA.updated_iso
+    ? new Intl.DateTimeFormat(locale(),{dateStyle:'medium',timeStyle:'short',timeZone:'Europe/Rome'}).format(new Date(DATA.updated_iso))
+    : DATA.updated;
+  document.getElementById('foot').textContent = `${tr('footerSource')} ${tr('lastUpdated')} ${updated}. ${tr('timeNote')} ${tr('venueNote')}`;
+}
+const originalRender = render;
+render = function(){ originalRender(); updateFooter(); };
+
+let savedLang='it';
+try{savedLang=localStorage.getItem('cal-lingua')||'it';}catch(e){}
+setLanguage(savedLang);
 </script>
 </body>
 </html>
