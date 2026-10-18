@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>__TITOLO__</title>
+<meta name="description" content="Calendario unico di tutte le partite delle squadre, aggiornato ogni notte dal Portale Risultati FITeT.">
+<link rel="icon" href="logo.png">
+<link rel="apple-touch-icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&display=swap">
+<style>
+/* Layout: header con logo, "prossimo turno", barra calendario, filtri fissi in alto, agenda giorno per giorno, schede squadre. */
+:root{
+  --bg:#eef1f7; --surface:#ffffff; --surface-2:#f6f8fb; --ink:#0f1f36; --muted:#5a6a80; --line:#d6dee9;
+  --table:#13317a; --table-soft:#e2e8f6; --ball:#f2b705; --ball-ink:#7f5a00; --ball-soft:#fcf0c8; --on-ball:#1d1600;
+  --win:#1d7f47; --win-soft:#e1f3e8; --loss:#b83a3a; --loss-soft:#f8e3e3;
+  --display:"Barlow Condensed","Arial Narrow",system-ui,sans-serif;
+  --body:"Barlow",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --r:10px; color-scheme:light;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0a1320; --surface:#111c2c; --surface-2:#0e1826; --ink:#e6edf7; --muted:#8fa1b9; --line:#22334b;
+  --table:#8eaef2; --table-soft:#15254a; --ball:#ffc834; --ball-ink:#ffcf4d; --ball-soft:#33290b; --on-ball:#1d1600;
+  --win:#57c789; --win-soft:#123224; --loss:#f07474; --loss-soft:#3a1a1c; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0a1320; --surface:#111c2c; --surface-2:#0e1826; --ink:#e6edf7; --muted:#8fa1b9; --line:#22334b;
+  --table:#8eaef2; --table-soft:#15254a; --ball:#ffc834; --ball-ink:#ffcf4d; --ball-soft:#33290b; --on-ball:#1d1600;
+  --win:#57c789; --win-soft:#123224; --loss:#f07474; --loss-soft:#3a1a1c; color-scheme:dark}
+*{box-sizing:border-box}
+html{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.45}
+[hidden]{display:none!important}
+.wrap{max-width:980px;margin:0 auto;padding-inline:16px;padding-block:20px 48px;display:flex;flex-direction:column;gap:20px}
+a{color:var(--table)}
+button,select{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--ball);outline-offset:2px}
+.ico{width:.95em;height:.95em;vertical-align:-.12em;display:inline-block}
+
+header.top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 24px}
+.brand{display:flex;align-items:center;gap:14px;min-width:0}
+.mark{height:60px;width:auto;flex:none;display:block}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(1.6rem,4.5vw,2.2rem);line-height:1;margin:0;letter-spacing:.01em;text-wrap:balance}
+.sub{color:var(--muted);font-size:.9rem;margin-top:4px}
+.stats{display:flex;gap:18px;font-variant-numeric:tabular-nums}
+.stat b{display:block;font-family:var(--display);font-size:1.6rem;line-height:1;font-weight:600}
+.stat span{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+
+.next{background:var(--table);color:#fff;border-radius:var(--r);padding:14px 16px;display:flex;flex-direction:column;gap:10px}
+:root[data-theme="dark"] .next{background:var(--table-soft);color:var(--ink)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .next{background:var(--table-soft);color:var(--ink)}}
+.next-h{display:flex;flex-wrap:wrap;gap:4px 12px;align-items:baseline}
+.next-h .k{font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--ball);font-weight:600}
+.next-h .d{font-family:var(--display);font-size:1.5rem;font-weight:600;line-height:1}
+.next-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:8px}
+.nx{background:rgba(255,255,255,.1);border-radius:8px;padding:8px 10px;display:flex;gap:10px;align-items:baseline;min-width:0}
+.nx .t{font-family:var(--display);font-weight:600;font-size:1.15rem;font-variant-numeric:tabular-nums}
+.nx .m{min-width:0;font-size:.9rem}
+.nx .m small{display:block;opacity:.75;font-size:.75rem;text-transform:uppercase;letter-spacing:.06em}
+
+.cal{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:10px 14px}
+.cal .lbl{font-size:.88rem;color:var(--muted);flex:1 1 260px;min-width:0}
+.cal .btns{display:flex;flex-wrap:wrap;gap:8px}
+.cal .lbl b{color:var(--ink);font-weight:600}
+.btn{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--surface-2);color:var(--ink);text-decoration:none;border-radius:8px;padding:6px 12px;font-size:.88rem;font-weight:500;cursor:pointer}
+.btn.pri{background:var(--table);border-color:var(--table);color:var(--surface)}
+.btn:hover{border-color:var(--table)}
+
+.filters{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding-block:10px;margin-block:-10px;display:flex;flex-direction:column;gap:8px;border-bottom:1px solid var(--line)}
+.row{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.chip{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:5px 12px;cursor:pointer;font-family:var(--display);font-weight:600;font-size:1rem;letter-spacing:.03em;line-height:1.2}
+.chip[aria-pressed="true"]{background:var(--table);border-color:var(--table);color:var(--surface)}
+.sel{border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:6px 10px;max-width:100%}
+.tog{display:inline-flex;align-items:center;gap:6px;font-size:.88rem;color:var(--muted);cursor:pointer;user-select:none;padding:4px 2px}
+.tog input{accent-color:var(--table);width:16px;height:16px}
+.count{margin-left:auto;font-size:.85rem;color:var(--muted);font-variant-numeric:tabular-nums}
+
+.month{font-family:var(--display);font-weight:700;font-size:1.3rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:14px 0 2px;display:flex;align-items:center;gap:10px}
+.month::after{content:"";flex:1;height:1px;background:var(--line)}
+.day{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.day-h{display:flex;align-items:baseline;gap:10px;padding:8px 14px;background:var(--surface-2);border-bottom:1px solid var(--line)}
+.day-h .dn{font-family:var(--display);font-size:1.25rem;font-weight:600;text-transform:capitalize}
+.day-h .n{font-size:.78rem;color:var(--muted);margin-left:auto}
+.day-h .today{font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;background:var(--ball);color:var(--on-ball);border-radius:4px;padding:1px 6px}
+.match{display:grid;grid-template-columns:66px minmax(0,1fr) minmax(0,.8fr);gap:4px 14px;padding:10px 14px;border-top:1px solid var(--line);align-items:start}
+.match:first-of-type{border-top:0}
+.tm{font-family:var(--display);font-size:1.35rem;font-weight:600;line-height:1.1;font-variant-numeric:tabular-nums}
+.side{display:inline-block;margin-top:4px;font-size:.66rem;text-transform:uppercase;letter-spacing:.08em;font-weight:600;padding:1px 6px;border-radius:4px}
+.side.casa{background:var(--ball-soft);color:var(--ball-ink)}
+.side.trasf{background:var(--table-soft);color:var(--table)}
+.side.derby{background:var(--ball);color:var(--on-ball)}
+.side.conc{background:var(--surface-2);color:var(--muted);border:1px solid var(--line)}
+.meta{font-size:.74rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.ser{font-family:var(--display);font-weight:700;font-size:.9rem;letter-spacing:.04em;color:var(--surface);background:var(--ink);border-radius:4px;padding:0 6px;white-space:nowrap}
+.teams{font-size:1rem;margin-top:2px;overflow-wrap:anywhere}
+.teams .c{font-weight:600;color:var(--table)}
+.teams .vs{color:var(--muted);font-size:.85rem;margin-inline:4px}
+.res{display:inline-flex;align-items:center;gap:6px;margin-top:4px;font-family:var(--display);font-weight:600;font-size:1.05rem;font-variant-numeric:tabular-nums}
+.res .o{font-size:.68rem;font-family:var(--body);text-transform:uppercase;letter-spacing:.08em;padding:1px 6px;border-radius:4px}
+.res.w .o{background:var(--win-soft);color:var(--win)} .res.l .o{background:var(--loss-soft);color:var(--loss)}
+.venue{font-size:.86rem;color:var(--muted);min-width:0;overflow-wrap:anywhere}
+.venue a{color:var(--ink);text-decoration:none;font-weight:500}
+.venue a:hover{text-decoration:underline}
+.venue .city{display:block}
+.past{opacity:.72}
+.empty{padding:28px;text-align:center;color:var(--muted);background:var(--surface);border:1px dashed var(--line);border-radius:var(--r)}
+@media (max-width:640px){
+  .match{grid-template-columns:58px minmax(0,1fr);padding:10px 12px}
+  .venue{grid-column:2}
+  .chip{padding:4px 10px}
+  .filters .row{gap:4px 8px}
+  .count{margin-left:0;width:100%}
+}
+
+h2{font-family:var(--display);font-size:1.6rem;font-weight:700;margin:24px 0 0}
+.h2sub{color:var(--muted);font-size:.9rem;margin:2px 0 0}
+.squads{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px}
+.sq{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:12px;display:flex;flex-direction:column;gap:6px;text-align:left;cursor:pointer}
+.sq:hover{border-color:var(--table)}
+.sq .top{display:flex;align-items:center;gap:8px}
+.sq .nm{font-family:var(--display);font-weight:600;font-size:1.2rem}
+.sq .gir{margin-left:auto;font-size:.75rem;color:var(--muted);text-align:right}
+.sq ul{margin:0;padding:0;list-style:none;font-size:.84rem;color:var(--muted)}
+.sq .nxt{font-size:.8rem;border-top:1px solid var(--line);padding-top:6px;margin-top:auto}
+.sq .nxt b{color:var(--ink);font-weight:600}
+footer{font-size:.8rem;color:var(--muted);border-top:1px solid var(--line);padding-top:12px}
+footer p{margin:0 0 6px}
+footer a{color:var(--muted)}
+@media (prefers-reduced-motion:no-preference){.chip,.sq,.btn{transition:background-color .15s,border-color .15s}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="brand">
+      <img class="mark" src="logo.png" alt="Logo" width="53" height="60">
+      <div>
+        <h1>__TITOLO__ <span id="season"></span></h1>
+        <div class="sub">__SOTTOTITOLO__</div>
+      </div>
+    </div>
+    <div class="stats">
+      <div class="stat"><b id="st-teams">0</b><span>squadre</span></div>
+      <div class="stat"><b id="st-matches">0</b><span>incontri</span></div>
+      <div class="stat"><b id="st-left">0</b><span>da giocare</span></div>
+    </div>
+  </header>
+
+  <section class="next" id="next" aria-label="Prossimo turno"></section>
+
+  <section class="cal" aria-label="Aggiungi al tuo calendario">
+    <span class="lbl" id="cal-lbl"></span>
+    <div class="btns">
+      <a class="btn pri" id="cal-sub" href="#" title="iPhone, iPad, Mac e Outlook">Aggiungi al calendario</a>
+      <a class="btn" id="cal-google" href="#" target="_blank" rel="noopener">Google Calendar</a>
+    </div>
+  </section>
+
+  <div class="filters" role="region" aria-label="Filtri">
+    <div class="row" id="chips"></div>
+    <div class="row">
+      <select class="sel" id="team" aria-label="Squadra"></select>
+      <label class="tog"><input type="checkbox" id="home"> Solo in casa</label>
+      <label class="tog"><input type="checkbox" id="past"> Mostra giocate</label>
+      <span class="count" id="count"></span>
+    </div>
+  </div>
+
+  <main id="agenda"></main>
+
+  <section>
+    <h2>Le squadre</h2>
+    <p class="h2sub">Formazioni iscritte sul portale. Tocca una squadra per vedere solo le sue partite.</p>
+  </section>
+  <div class="squads" id="squads"></div>
+
+  <footer><p id="foot"></p><p><a id="cal-dl" href="calendario.ics" download>Scarica una copia delle partite</a></p></footer>
+</div>
+
+<script>
+const DATA = __DATA__;
+const T = Object.fromEntries(DATA.teams.map(t=>[t.id,t]));
+const V = DATA.venues;
+const SERIES = DATA.series;
+const M = DATA.matches.map(m=>({...m, date:new Date(m.dt.length>10 ? m.dt : m.dt+'T00:00'), allDay:m.dt.length<=10}));
+const now = new Date();
+const startToday = new Date(now.getFullYear(),now.getMonth(),now.getDate());
+const isPast = m => !!m.r || m.date < startToday;
+
+const ICONS = {
+  '♿':'<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-label="carrozzina"><circle cx="12.5" cy="3.6" r="2.1" fill="currentColor" stroke="none"/><path d="M11.5 7.6v6h5.6l2.6 5.6"/><path d="M11.5 10.4h4.8"/><path d="M8.6 10.6a5.6 5.6 0 1 0 7.6 7.4"/></svg>',
+  '♀':'<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" aria-label="femminile"><circle cx="12" cy="8.6" r="5.4"/><path d="M12 14v8M8.6 18.6h6.8"/></svg>'
+};
+const esc = s => String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const serHtml = s => esc(s).replace(/[♿♀]/g, ch => ICONS[ch]);
+const serTxt = s => s.replace(' ♿',' paralimpica').replace(' ♀',' femminile');
+
+const fmtDay = new Intl.DateTimeFormat('it-IT',{weekday:'long',day:'numeric',month:'long'});
+const fmtMonth = new Intl.DateTimeFormat('it-IT',{month:'long',year:'numeric'});
+const fmtShort = new Intl.DateTimeFormat('it-IT',{weekday:'short',day:'numeric',month:'short'});
+const hhmm = m => m.allDay ? '—' : m.date.toTimeString().slice(0,5).replace(':','.');
+const dayKey = d => d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+const name = (x,isC) => isC ? T[x].lab : x;
+
+function side(m, focus){
+  if(m.hc && m.ac) return ['derby','Derby'];
+  if(m.conc) return ['conc','Concentramento'];
+  const home = focus ? m.h===focus : m.hc;
+  return home ? ['casa','Casa'] : ['trasf','Fuori'];
+}
+function outcome(m){
+  if(!m.r || (m.hc&&m.ac)) return null;
+  const [a,b] = m.r.split('-').map(Number);
+  if(a===b) return null;
+  const cusWon = m.hc ? a>b : b>a;
+  return cusWon ? ['w','Vinta'] : ['l','Persa'];
+}
+const mapsUrl = v => 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(v.n+', '+v.s+', '+v.city);
+const fase = m => m.f==='A' ? `${m.g}ª andata` : m.f==='R' ? `${m.g}ª ritorno` : (m.g ? `${m.g}ª giornata` : '');
+
+// ---- stato filtri (ricordato nel browser)
+let st = {ser:[], team:'', home:false, past:false};
+try{ const s = JSON.parse(localStorage.getItem('cal-filtri')||'null'); if(s) st = {...st, ...s}; }catch(e){}
+st.ser = st.ser.filter(s=>SERIES.includes(s)); if(st.team && !T[st.team]) st.team='';
+const save = ()=>{ try{ localStorage.setItem('cal-filtri', JSON.stringify(st)); }catch(e){} };
+
+const chips = document.getElementById('chips');
+chips.innerHTML = `<button class="chip" data-s="">Tutte</button>` + SERIES.map(s=>`<button class="chip" data-s="${esc(s)}">${serHtml(s)}</button>`).join('');
+chips.addEventListener('click',e=>{
+  const b = e.target.closest('.chip'); if(!b) return;
+  const s = b.dataset.s;
+  if(!s) st.ser = []; else st.ser = st.ser.includes(s) ? st.ser.filter(x=>x!==s) : [...st.ser, s];
+  if(st.team && st.ser.length && !st.ser.includes(T[st.team].ser)) st.team='';
+  render();
+});
+const sel = document.getElementById('team');
+sel.innerHTML = `<option value="">Tutte le squadre (${DATA.teams.length})</option>` + SERIES.map(s=>{
+  const ts = DATA.teams.filter(t=>t.ser===s);
+  return `<optgroup label="Serie ${esc(serTxt(s))}">` + ts.map(t=>`<option value="${t.id}">${esc(serTxt(s))} · ${esc(t.lab)} (${esc(t.gir)})</option>`).join('') + `</optgroup>`;
+}).join('');
+sel.addEventListener('change',()=>{ st.team = sel.value; if(st.team) st.ser=[]; render(); });
+const homeEl = document.getElementById('home'), pastEl = document.getElementById('past');
+homeEl.addEventListener('change',()=>{ st.home = homeEl.checked; render(); });
+pastEl.addEventListener('change',()=>{ st.past = pastEl.checked; render(); });
+
+function filtered(includePast){
+  return M.filter(m=>{
+    if(st.ser.length && !st.ser.includes(m.ser)) return false;
+    if(st.team && !m.teams.includes(st.team)) return false;
+    if(st.home){ const home = st.team ? m.h===st.team : !!m.hc; if(!home || m.conc) return false; }
+    if(!includePast && isPast(m)) return false;
+    return true;
+  });
+}
+
+function matchRow(m){
+  const [sc,sl] = side(m, st.team);
+  const h = m.hc ? `<span class="c">${esc(T[m.h].lab)}</span>` : esc(m.h);
+  const a = m.ac ? `<span class="c">${esc(T[m.a].lab)}</span>` : esc(m.a);
+  const oc = outcome(m);
+  const res = m.r ? `<div class="res ${oc?oc[0]:''}">${m.r.replace('-','–')}${oc?` <span class="o">${oc[1]}</span>`:''}</div>` : '';
+  const v = m.v===null || m.v===undefined ? null : V[m.v];
+  const venue = v ? `<a href="${mapsUrl(v)}" target="_blank" rel="noopener">${esc(v.n)}</a><span class="city">${esc(v.s)}${v.city?', '+esc(v.city):''}</span>`
+                  : (m.conc ? `Concentramento<span class="city">Sede indicata nei comunicati FITeT</span>` : '');
+  return `<div class="match ${isPast(m)?'past':''}">
+    <div><div class="tm">${hhmm(m)}</div>${m.conc?'':`<span class="side ${sc}">${sl}</span>`}</div>
+    <div>
+      <div class="meta"><span class="ser">${serHtml(m.ser)}</span><span>${esc(m.gir)}</span><span>${fase(m)}</span></div>
+      <div class="teams">${h}<span class="vs">vs</span>${a}</div>${res}
+    </div>
+    <div class="venue">${venue}</div>
+  </div>`;
+}
+
+// ---- link calendario (cambiano con la squadra scelta)
+const baseUrl = location.href.replace(/[#?].*$/,'').replace(/[^/]*$/,'');
+function calLinks(){
+  const file = st.team ? `squadre/${st.team}.ics` : 'calendario.ics';
+  const http = baseUrl + file;
+  const webcal = http.replace(/^https?:/,'webcal:');
+  document.getElementById('cal-sub').href = webcal;
+  document.getElementById('cal-google').href = 'https://calendar.google.com/calendar/r?cid=' + encodeURIComponent(webcal);
+  document.getElementById('cal-dl').href = file;
+  document.getElementById('cal-lbl').innerHTML = st.team
+    ? `Partite di <b>${serHtml(T[st.team].ser)} · ${esc(T[st.team].lab)}</b> nel calendario del telefono, sempre aggiornate`
+    : `Tutte le partite nel calendario del telefono, sempre aggiornate. Scegli una squadra per aggiungere solo le sue.`;
+}
+
+function render(){
+  save();
+  chips.querySelectorAll('.chip').forEach(b=>b.setAttribute('aria-pressed', b.dataset.s ? st.ser.includes(b.dataset.s) : st.ser.length===0));
+  sel.value = st.team; homeEl.checked = st.home; pastEl.checked = st.past;
+  calLinks();
+
+  const list = filtered(st.past);
+  const pastCount = filtered(true).filter(isPast).length;
+  document.getElementById('count').textContent = `${list.length} incontri` + (!st.past && pastCount ? ` · ${pastCount} già giocati nascosti` : '');
+
+  const ag = document.getElementById('agenda');
+  if(!list.length){ ag.innerHTML = `<div class="empty">Nessun incontro con questi filtri. Prova ad attivare «Mostra giocate» o a scegliere un'altra serie.</div>`; }
+  else{
+    let html='', curM='', curD='', buf=[];
+    const flush=()=>{ if(!buf.length) return; const d=buf[0].date; const isToday=dayKey(d)===dayKey(now);
+      html += `<div class="day"><div class="day-h"><span class="dn">${fmtDay.format(d)}</span>${isToday?'<span class="today">Oggi</span>':''}<span class="n">${buf.length} ${buf.length===1?'incontro':'incontri'}</span></div>${buf.map(matchRow).join('')}</div>`; buf=[]; };
+    for(const m of list){
+      const mk = fmtMonth.format(m.date), dk = dayKey(m.date);
+      if(dk!==curD){ flush(); curD=dk; }
+      if(mk!==curM){ html += `<div class="month">${mk}</div>`; curM=mk; }
+      buf.push(m);
+    }
+    flush();
+    ag.innerHTML = `<div style="display:flex;flex-direction:column;gap:10px">${html}</div>`;
+  }
+
+  const up = filtered(false);
+  const nx = document.getElementById('next');
+  if(up.length){
+    const k = dayKey(up[0].date); const day = up.filter(m=>dayKey(m.date)===k);
+    nx.hidden=false;
+    nx.innerHTML = `<div class="next-h"><span class="k">Prossimo turno</span><span class="d">${fmtDay.format(day[0].date)}</span></div>
+      <div class="next-list">${day.map(m=>{const v=m.v===null||m.v===undefined?null:V[m.v];return `<div class="nx"><span class="t">${hhmm(m)}</span><div class="m"><small>${serHtml(m.ser)} · ${side(m,st.team)[1]}</small>${esc(name(m.h,m.hc))} – ${esc(name(m.a,m.ac))}<small>${v?esc(v.n)+', '+esc(v.city):'Concentramento'}</small></div></div>`}).join('')}</div>`;
+  } else nx.hidden = true;
+}
+
+document.getElementById('squads').innerHTML = DATA.teams.map(t=>{
+  const ms = M.filter(m=>m.teams.includes(t.id));
+  const nxt = ms.find(m=>!isPast(m));
+  const opp = nxt ? (nxt.h===t.id ? name(nxt.a,nxt.ac) : name(nxt.h,nxt.hc)) : '';
+  return `<button class="sq" data-id="${t.id}">
+    <div class="top"><span class="ser">${serHtml(t.ser)}</span><span class="nm">${esc(t.lab)}</span><span class="gir">${esc(t.gir)}</span></div>
+    <ul>${(t.form.length?t.form:['Formazione non indicata']).map(p=>`<li>${esc(p)}</li>`).join('')}</ul>
+    <div class="nxt">${nxt?`Prossima: <b>${fmtShort.format(nxt.date)} ${hhmm(nxt)}</b> ${nxt.h===t.id?'vs':'@'} ${esc(opp)}`:'Nessuna partita in programma'}</div>
+  </button>`;
+}).join('');
+document.getElementById('squads').addEventListener('click',e=>{
+  const b=e.target.closest('.sq'); if(!b) return;
+  st.team=b.dataset.id; st.ser=[]; render(); window.scrollTo({top:0,behavior:'smooth'});
+});
+
+if(M.length){ const d0=M[0].date; const y = d0.getMonth()>=6 ? d0.getFullYear() : d0.getFullYear()-1;
+  document.getElementById('season').textContent = `${y}/${String((y+1)%100).padStart(2,'0')}`; }
+document.getElementById('st-teams').textContent = DATA.teams.length;
+document.getElementById('st-matches').textContent = M.length;
+document.getElementById('st-left').textContent = M.filter(m=>!isPast(m)).length;
+document.getElementById('foot').innerHTML = `Dati dal Portale Risultati FITeT, aggiornati automaticamente ogni notte. Ultimo aggiornamento: ${esc(DATA.updated)}. Gli orari sono quelli pubblicati, salvo variazioni concordate tra le società. Campo gara: quello principale della squadra di casa, o quello di riserva quando il calendario lo indica.`;
+render();
+</script>
+</body>
+</html>
