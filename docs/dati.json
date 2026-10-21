@@ -7,6 +7,7 @@
   "D1",
   "D2",
   "D3",
+  "C ♀",
   "A2 ♿",
   "C.I."
  ],
@@ -16,7 +17,12 @@
    "ser": "B1",
    "gir": "Gir. B",
    "lab": "CUS Torino",
-   "form": []
+   "form": [
+    "Giai Andrea",
+    "Foglia Mattia",
+    "Giardi Federico",
+    "Amato Alessandro"
+   ]
   },
   {
    "id": "11896",
@@ -83,7 +89,8 @@
    "form": [
     "Piovano Luca",
     "Formisano Massimiliano",
-    "Mensa Roberto"
+    "Mensa Roberto",
+    "Ruscitto Marinelli Damiano"
    ]
   },
   {
@@ -139,7 +146,8 @@
    "form": [
     "Molinari Fabio",
     "Molinari Marco",
-    "Ruscitto Marinelli Damiano"
+    "Ruscitto Marinelli Damiano",
+    "Viglione Danila"
    ]
   },
   {
@@ -173,7 +181,8 @@
    "form": [
     "Tebano Gabriele",
     "Panico Davide",
-    "De Stasi Alessandro"
+    "De Stasi Alessandro",
+    "Ronzulli Daniele"
    ]
   },
   {
@@ -184,7 +193,8 @@
    "form": [
     "Conti Lucrezia",
     "Renault De Haas Stephane",
-    "Durante Andrea"
+    "Durante Andrea",
+    "Boetti Cecilia Emilia"
    ]
   },
   {
@@ -196,7 +206,9 @@
     "Tavani Alberto",
     "Tiboni Michele",
     "Ghi Maria Eugenia Giovanna",
-    "Morra Anna"
+    "Morra Anna",
+    "Loconte Antonio",
+    "Esu Anna Maria"
    ]
   },
   {
@@ -221,6 +233,13 @@
     "Picciau Pietro Francesco",
     "Cagnoni Alberto"
    ]
+  },
+  {
+   "id": "40516",
+   "ser": "C ♀",
+   "gir": "femm Gir. A",
+   "lab": "CUS Torino",
+   "form": []
   },
   {
    "id": "12388",
@@ -5491,7 +5510,7 @@
    ]
   }
  ],
- "updated": "20/10/2026 alle 05:43",
- "updated_iso": "2026-10-20T05:43:56+02:00",
+ "updated": "21/10/2026 alle 05:47",
+ "updated_iso": "2026-10-21T05:47:12+02:00",
  "season": "41"
 }
