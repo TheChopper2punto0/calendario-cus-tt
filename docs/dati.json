@@ -9,7 +9,8 @@
   "D3",
   "C ♀",
   "A2 ♿",
-  "C.I."
+  "C.I.",
+  "M. Master A/2"
  ],
  "teams": [
   {
@@ -274,6 +275,13 @@
    "ser": "C.I.",
    "gir": "D2D3 Gir. C",
    "lab": "CUS B",
+   "form": []
+  },
+  {
+   "id": "12012",
+   "ser": "M. Master A/2",
+   "gir": "Master A/2 Gir. A",
+   "lab": "CUS Torino",
    "form": []
   }
  ],
@@ -2357,6 +2365,24 @@
    ]
   },
   {
+   "id": "392191",
+   "dt": "2026-11-29T10:00",
+   "ser": "M. Master A/2",
+   "gir": "Master A/2 Gir. A",
+   "g": 1,
+   "f": "U",
+   "h": "TT REGGIO EMILIA GRISSIN BON",
+   "a": "12012",
+   "hc": 0,
+   "ac": 1,
+   "r": "",
+   "v": null,
+   "conc": true,
+   "teams": [
+    "12012"
+   ]
+  },
+  {
    "id": "371023",
    "dt": "2026-11-29T12:00",
    "ser": "B1",
@@ -2372,6 +2398,42 @@
    "conc": false,
    "teams": [
     "11797"
+   ]
+  },
+  {
+   "id": "392194",
+   "dt": "2026-11-29T12:30",
+   "ser": "M. Master A/2",
+   "gir": "Master A/2 Gir. A",
+   "g": 2,
+   "f": "U",
+   "h": "12012",
+   "a": "AON - MILANO SPORT",
+   "hc": 1,
+   "ac": 0,
+   "r": "",
+   "v": null,
+   "conc": true,
+   "teams": [
+    "12012"
+   ]
+  },
+  {
+   "id": "392196",
+   "dt": "2026-11-29T14:30",
+   "ser": "M. Master A/2",
+   "gir": "Master A/2 Gir. A",
+   "g": 3,
+   "f": "U",
+   "h": "G.S. G. REGALDI NOVARA",
+   "a": "12012",
+   "hc": 0,
+   "ac": 1,
+   "r": "",
+   "v": null,
+   "conc": true,
+   "teams": [
+    "12012"
    ]
   },
   {
@@ -3455,6 +3517,42 @@
    "teams": [
     "38990",
     "39491"
+   ]
+  },
+  {
+   "id": "392200",
+   "dt": "2027-01-24T10:00",
+   "ser": "M. Master A/2",
+   "gir": "Master A/2 Gir. A",
+   "g": 4,
+   "f": "U",
+   "h": "12012",
+   "a": "COBI MECCANICA - ASD TT VILLA D'ORO MODENA",
+   "hc": 1,
+   "ac": 0,
+   "r": "",
+   "v": null,
+   "conc": true,
+   "teams": [
+    "12012"
+   ]
+  },
+  {
+   "id": "392201",
+   "dt": "2027-01-24T12:30",
+   "ser": "M. Master A/2",
+   "gir": "Master A/2 Gir. A",
+   "g": 5,
+   "f": "U",
+   "h": "U.S. Olimpia A.S.D. Sez. T.T.",
+   "a": "12012",
+   "hc": 0,
+   "ac": 1,
+   "r": "",
+   "v": null,
+   "conc": true,
+   "teams": [
+    "12012"
    ]
   },
   {
@@ -5510,7 +5608,7 @@
    ]
   }
  ],
- "updated": "22/10/2026 alle 05:43",
- "updated_iso": "2026-10-22T05:43:59+02:00",
+ "updated": "23/10/2026 alle 05:45",
+ "updated_iso": "2026-10-23T05:45:05+02:00",
  "season": "41"
 }
