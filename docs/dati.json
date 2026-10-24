@@ -1302,6 +1302,42 @@
    ]
   },
   {
+   "id": "391236",
+   "dt": "2026-10-27T21:00",
+   "ser": "C.I.",
+   "gir": "D2D3 Gir. C",
+   "g": 1,
+   "f": "U",
+   "h": "40510",
+   "a": "TT VITATTIVA BIT TONIC",
+   "hc": 1,
+   "ac": 0,
+   "r": "",
+   "v": null,
+   "conc": false,
+   "teams": [
+    "40510"
+   ]
+  },
+  {
+   "id": "391221",
+   "dt": "2026-10-28T20:30",
+   "ser": "C.I.",
+   "gir": "D2D3 Gir. B",
+   "g": 1,
+   "f": "U",
+   "h": "40509",
+   "a": "TT VITATTIVA PRESSOCHIERESI",
+   "hc": 1,
+   "ac": 0,
+   "r": "",
+   "v": null,
+   "conc": false,
+   "teams": [
+    "40509"
+   ]
+  },
+  {
    "id": "391177",
    "dt": "2026-11-01T21:00",
    "ser": "C.I.",
@@ -1335,42 +1371,6 @@
    "conc": false,
    "teams": [
     "40507"
-   ]
-  },
-  {
-   "id": "391221",
-   "dt": "2026-11-01T21:00",
-   "ser": "C.I.",
-   "gir": "D2D3 Gir. B",
-   "g": 1,
-   "f": "U",
-   "h": "40509",
-   "a": "TT VITATTIVA PRESSOCHIERESI",
-   "hc": 1,
-   "ac": 0,
-   "r": "",
-   "v": null,
-   "conc": false,
-   "teams": [
-    "40509"
-   ]
-  },
-  {
-   "id": "391236",
-   "dt": "2026-11-01T21:00",
-   "ser": "C.I.",
-   "gir": "D2D3 Gir. C",
-   "g": 1,
-   "f": "U",
-   "h": "40510",
-   "a": "TT VITATTIVA BIT TONIC",
-   "hc": 1,
-   "ac": 0,
-   "r": "",
-   "v": null,
-   "conc": false,
-   "teams": [
-    "40510"
    ]
   },
   {
@@ -5608,7 +5608,7 @@
    ]
   }
  ],
- "updated": "23/10/2026 alle 05:45",
- "updated_iso": "2026-10-23T05:45:05+02:00",
+ "updated": "24/10/2026 alle 05:43",
+ "updated_iso": "2026-10-24T05:43:06+02:00",
  "season": "41"
 }
