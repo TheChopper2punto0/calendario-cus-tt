@@ -1258,7 +1258,7 @@
    "a": "A4 VERZUOLO TONOLI-SCOTTA",
    "hc": 1,
    "ac": 0,
-   "r": "",
+   "r": "3-0",
    "v": null,
    "conc": true,
    "teams": [
@@ -1294,7 +1294,7 @@
    "a": "ASV TT SUDTIROL CRIMSON SNOW",
    "hc": 1,
    "ac": 0,
-   "r": "",
+   "r": "3-0",
    "v": null,
    "conc": true,
    "teams": [
@@ -1312,7 +1312,7 @@
    "a": "TT VITATTIVA BIT TONIC",
    "hc": 1,
    "ac": 0,
-   "r": "",
+   "r": "3-0",
    "v": null,
    "conc": false,
    "teams": [
@@ -1357,7 +1357,7 @@
   },
   {
    "id": "391192",
-   "dt": "2026-11-01T21:00",
+   "dt": "2026-11-01T20:30",
    "ser": "C.I.",
    "gir": "C2D1 Gir. C",
    "g": 1,
@@ -5770,7 +5770,7 @@
    ]
   }
  ],
- "updated": "27/10/2026 alle 04:45",
- "updated_iso": "2026-10-27T04:45:19+01:00",
+ "updated": "28/10/2026 alle 04:54",
+ "updated_iso": "2026-10-28T04:54:16+01:00",
  "season": "41"
 }
