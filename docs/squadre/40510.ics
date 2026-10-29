@@ -26,40 +26,44 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:7b12a0f502a29e8a8cf5464fe1d094ed@fitet-437
-DTSTAMP:20261028T035416Z
+DTSTAMP:20261029T035951Z
 DTSTART;TZID=Europe/Rome:20261027T210000
 DTEND;TZID=Europe/Rome:20261028T000000
 SUMMARY:C.I. · CUS B – TT VITATTIVA BIT TONIC
 DESCRIPTION:Serie C.I. D2D3 Gir. C · 1ª giornata (casa)\nRisultato: 3-0\n
- Fonte: Portale Risultati FITeT (salvo variazioni)
+ Formazione CUS B: Ronzulli Daniele\, Schiavone Valerio\, Formichetti Leona
+ rdo\nFonte: Portale Risultati FITeT (salvo variazioni)
 END:VEVENT
 BEGIN:VEVENT
 UID:9092a209f870ed3f4fbc6e4289c74ce4@fitet-437
-DTSTAMP:20261028T035416Z
+DTSTAMP:20261029T035951Z
 DTSTART;TZID=Europe/Rome:20270103T210000
 DTEND;TZID=Europe/Rome:20270104T000000
 SUMMARY:C.I. · TT. Isola d'Asti Punto 99 – CUS B
 LOCATION:Centro P Brondolo\, via Bausola 7\, Isola d'Asti
-DESCRIPTION:Serie C.I. D2D3 Gir. C · 3ª giornata (trasferta)\nFonte: Port
- ale Risultati FITeT (salvo variazioni)
+DESCRIPTION:Serie C.I. D2D3 Gir. C · 3ª giornata (trasferta)\nFormazione 
+ CUS B: Ronzulli Daniele\, Schiavone Valerio\, Formichetti Leonardo\nFonte:
+  Portale Risultati FITeT (salvo variazioni)
 END:VEVENT
 BEGIN:VEVENT
 UID:b8be87ad640b2bace05065af6c597d28@fitet-437
-DTSTAMP:20261028T035416Z
+DTSTAMP:20261029T035951Z
 DTSTART;TZID=Europe/Rome:20270131T210000
 DTEND;TZID=Europe/Rome:20270201T000000
 SUMMARY:C.I. · CUS B – TT SAN DAMIANO PIZZERIA IL CRISCITO
-DESCRIPTION:Serie C.I. D2D3 Gir. C · 4ª giornata (casa)\nFonte: Portale R
- isultati FITeT (salvo variazioni)
+DESCRIPTION:Serie C.I. D2D3 Gir. C · 4ª giornata (casa)\nFormazione CUS B
+ : Ronzulli Daniele\, Schiavone Valerio\, Formichetti Leonardo\nFonte: Port
+ ale Risultati FITeT (salvo variazioni)
 END:VEVENT
 BEGIN:VEVENT
 UID:0235a982d53653767c2236c52eaff12d@fitet-437
-DTSTAMP:20261028T035416Z
+DTSTAMP:20261029T035951Z
 DTSTART;TZID=Europe/Rome:20270228T210000
 DTEND;TZID=Europe/Rome:20270301T000000
 SUMMARY:C.I. · Enjoy B – CUS B
 LOCATION:TT Enjoy\, Corso Francia 229/C\, Collegno
-DESCRIPTION:Serie C.I. D2D3 Gir. C · 5ª giornata (trasferta)\nFonte: Port
- ale Risultati FITeT (salvo variazioni)
+DESCRIPTION:Serie C.I. D2D3 Gir. C · 5ª giornata (trasferta)\nFormazione 
+ CUS B: Ronzulli Daniele\, Schiavone Valerio\, Formichetti Leonardo\nFonte:
+  Portale Risultati FITeT (salvo variazioni)
 END:VEVENT
 END:VCALENDAR

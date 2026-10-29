@@ -124,7 +124,8 @@
    "form": [
     "Schiavone Valerio",
     "Formichetti Leonardo",
-    "Ameduri Fabrizio"
+    "Ameduri Fabrizio",
+    "Garavelli Simone"
    ]
   },
   {
@@ -247,7 +248,10 @@
    "ser": "A2 ♿",
    "gir": "gruppo 1-5 Gir. B",
    "lab": "CUS Torino",
-   "form": []
+   "form": [
+    "Durante Andrea",
+    "Abate Miriam"
+   ]
   },
   {
    "id": "40508",
@@ -268,14 +272,22 @@
    "ser": "C.I.",
    "gir": "D2D3 Gir. B",
    "lab": "CUS A",
-   "form": []
+   "form": [
+    "Raina Diego",
+    "Abate Miriam",
+    "Vista Fedele"
+   ]
   },
   {
    "id": "40510",
    "ser": "C.I.",
    "gir": "D2D3 Gir. C",
    "lab": "CUS B",
-   "form": []
+   "form": [
+    "Ronzulli Daniele",
+    "Schiavone Valerio",
+    "Formichetti Leonardo"
+   ]
   },
   {
    "id": "12012",
@@ -1348,7 +1360,7 @@
    "a": "TT VITATTIVA PRESSOCHIERESI",
    "hc": 1,
    "ac": 0,
-   "r": "",
+   "r": "3-0",
    "v": null,
    "conc": false,
    "teams": [
@@ -5770,7 +5782,7 @@
    ]
   }
  ],
- "updated": "28/10/2026 alle 04:54",
- "updated_iso": "2026-10-28T04:54:16+01:00",
+ "updated": "29/10/2026 alle 04:59",
+ "updated_iso": "2026-10-29T04:59:51+01:00",
  "season": "41"
 }
