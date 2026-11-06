@@ -258,14 +258,24 @@
    "ser": "C.I.",
    "gir": "C2D1 Gir. B",
    "lab": "CUS B",
-   "form": []
+   "form": [
+    "Di Simone Leonardo",
+    "Caselli Paolo",
+    "Marino Michele",
+    "Albisino Andrea"
+   ]
   },
   {
    "id": "40507",
    "ser": "C.I.",
    "gir": "C2D1 Gir. C",
    "lab": "CUS A",
-   "form": []
+   "form": [
+    "Mensa Roberto",
+    "Mari Gabriele",
+    "Marino Emma",
+    "Chen Shurui"
+   ]
   },
   {
    "id": "40509",
@@ -299,14 +309,14 @@
  ],
  "venues": [
   {
-   "n": "Palazzetto dello Sport di Grugliasco",
-   "s": "Via CLN 53",
-   "city": "Grugliasco"
-  },
-  {
    "n": "Centro Sportivo Villa Romanò",
    "s": "Via Manzoni, 1",
    "city": "Inverigo"
+  },
+  {
+   "n": "Palazzetto dello Sport di Grugliasco",
+   "s": "Via CLN 53",
+   "city": "Grugliasco"
   },
   {
    "n": "Centro Sportivo Bonacossa",
@@ -819,7 +829,7 @@
    "hc": 1,
    "ac": 0,
    "r": "6-1",
-   "v": 0,
+   "v": 1,
    "conc": false,
    "teams": [
     "11896"
@@ -1667,7 +1677,7 @@
    "hc": 1,
    "ac": 0,
    "r": "",
-   "v": 0,
+   "v": 1,
    "conc": false,
    "teams": [
     "11797"
@@ -1685,7 +1695,7 @@
    "hc": 1,
    "ac": 0,
    "r": "",
-   "v": 0,
+   "v": 1,
    "conc": false,
    "teams": [
     "11896"
@@ -1725,6 +1735,24 @@
    "conc": false,
    "teams": [
     "38986"
+   ]
+  },
+  {
+   "id": "371023",
+   "dt": "2026-11-08T12:00",
+   "ser": "B1",
+   "gir": "Gir. B",
+   "g": 1,
+   "f": "A",
+   "h": "ASD US VILLA ROMANO'",
+   "a": "11797",
+   "hc": 0,
+   "ac": 1,
+   "r": "",
+   "v": 0,
+   "conc": false,
+   "teams": [
+    "11797"
    ]
   },
   {
@@ -2316,7 +2344,7 @@
    "hc": 1,
    "ac": 0,
    "r": "",
-   "v": 0,
+   "v": 1,
    "conc": false,
    "teams": [
     "11797"
@@ -2334,7 +2362,7 @@
    "hc": 1,
    "ac": 0,
    "r": "",
-   "v": 0,
+   "v": 1,
    "conc": false,
    "teams": [
     "11896"
@@ -2410,24 +2438,6 @@
    "conc": true,
    "teams": [
     "12012"
-   ]
-  },
-  {
-   "id": "371023",
-   "dt": "2026-11-29T12:00",
-   "ser": "B1",
-   "gir": "Gir. B",
-   "g": 1,
-   "f": "A",
-   "h": "11797",
-   "a": "ASD US VILLA ROMANO'",
-   "hc": 1,
-   "ac": 0,
-   "r": "",
-   "v": 0,
-   "conc": false,
-   "teams": [
-    "11797"
    ]
   },
   {
@@ -3000,7 +3010,7 @@
    "hc": 1,
    "ac": 0,
    "r": "",
-   "v": 0,
+   "v": 1,
    "conc": false,
    "teams": [
     "11797"
@@ -3018,7 +3028,7 @@
    "hc": 1,
    "ac": 0,
    "r": "",
-   "v": 0,
+   "v": 1,
    "conc": false,
    "teams": [
     "11896"
@@ -3547,6 +3557,24 @@
    ]
   },
   {
+   "id": "371051",
+   "dt": "2027-01-16T16:00",
+   "ser": "B1",
+   "gir": "Gir. B",
+   "g": 1,
+   "f": "R",
+   "h": "11797",
+   "a": "ASD US VILLA ROMANO'",
+   "hc": 1,
+   "ac": 0,
+   "r": "",
+   "v": 1,
+   "conc": false,
+   "teams": [
+    "11797"
+   ]
+  },
+  {
    "id": "376332",
    "dt": "2027-01-16T16:00",
    "ser": "C2",
@@ -3562,24 +3590,6 @@
    "conc": false,
    "teams": [
     "38798"
-   ]
-  },
-  {
-   "id": "371051",
-   "dt": "2027-01-17T12:00",
-   "ser": "B1",
-   "gir": "Gir. B",
-   "g": 1,
-   "f": "R",
-   "h": "ASD US VILLA ROMANO'",
-   "a": "11797",
-   "hc": 0,
-   "ac": 1,
-   "r": "",
-   "v": 1,
-   "conc": false,
-   "teams": [
-    "11797"
    ]
   },
   {
@@ -3957,7 +3967,7 @@
    "hc": 1,
    "ac": 0,
    "r": "",
-   "v": 0,
+   "v": 1,
    "conc": false,
    "teams": [
     "11797"
@@ -3975,7 +3985,7 @@
    "hc": 1,
    "ac": 0,
    "r": "",
-   "v": 0,
+   "v": 1,
    "conc": false,
    "teams": [
     "11896"
@@ -4713,7 +4723,7 @@
    "hc": 1,
    "ac": 0,
    "r": "",
-   "v": 0,
+   "v": 1,
    "conc": false,
    "teams": [
     "11797"
@@ -4731,7 +4741,7 @@
    "hc": 1,
    "ac": 0,
    "r": "",
-   "v": 0,
+   "v": 1,
    "conc": false,
    "teams": [
     "11896"
@@ -5397,7 +5407,7 @@
    "hc": 1,
    "ac": 0,
    "r": "",
-   "v": 0,
+   "v": 1,
    "conc": false,
    "teams": [
     "11797"
@@ -5415,7 +5425,7 @@
    "hc": 1,
    "ac": 0,
    "r": "",
-   "v": 0,
+   "v": 1,
    "conc": false,
    "teams": [
     "11896"
@@ -5782,7 +5792,7 @@
    ]
   }
  ],
- "updated": "05/11/2026 alle 05:02",
- "updated_iso": "2026-11-05T05:02:45+01:00",
+ "updated": "06/11/2026 alle 05:04",
+ "updated_iso": "2026-11-06T05:04:21+01:00",
  "season": "41"
 }
