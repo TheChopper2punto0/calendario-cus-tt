@@ -1406,7 +1406,7 @@
    "a": "TT GS PORTE C",
    "hc": 1,
    "ac": 0,
-   "r": "",
+   "r": "6-1",
    "v": 21,
    "conc": false,
    "teams": [
@@ -1424,7 +1424,7 @@
    "a": "SISPORT C",
    "hc": 1,
    "ac": 0,
-   "r": "",
+   "r": "2-5",
    "v": 21,
    "conc": false,
    "teams": [
@@ -1478,7 +1478,7 @@
    "a": "PIERINO MAZZETTO YOUNG",
    "hc": 1,
    "ac": 0,
-   "r": "",
+   "r": "1-6",
    "v": 21,
    "conc": false,
    "teams": [
@@ -1496,7 +1496,7 @@
    "a": "PIERINO MAZZETTO C",
    "hc": 1,
    "ac": 0,
-   "r": "",
+   "r": "6-1",
    "v": 21,
    "conc": false,
    "teams": [
@@ -1550,7 +1550,7 @@
    "a": "38990",
    "hc": 0,
    "ac": 1,
-   "r": "",
+   "r": "4-3",
    "v": 40,
    "conc": false,
    "teams": [
@@ -1568,7 +1568,7 @@
    "a": "38828",
    "hc": 0,
    "ac": 1,
-   "r": "",
+   "r": "6-1",
    "v": 16,
    "conc": false,
    "teams": [
@@ -5792,7 +5792,7 @@
    ]
   }
  ],
- "updated": "06/11/2026 alle 05:04",
- "updated_iso": "2026-11-06T05:04:21+01:00",
+ "updated": "07/11/2026 alle 04:58",
+ "updated_iso": "2026-11-07T04:58:14+01:00",
  "season": "41"
 }
