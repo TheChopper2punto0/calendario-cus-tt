@@ -1442,7 +1442,7 @@
    "a": "Torino A",
    "hc": 1,
    "ac": 0,
-   "r": "",
+   "r": "3-4",
    "v": 24,
    "conc": false,
    "teams": [
@@ -1460,7 +1460,7 @@
    "a": "VALLEDORA ALPIGNANO YOU PONG",
    "hc": 1,
    "ac": 0,
-   "r": "",
+   "r": "7-0",
    "v": 21,
    "conc": false,
    "teams": [
@@ -1604,7 +1604,7 @@
    "a": "A.S.D. T.T. ENJOY BARBARIANS",
    "hc": 1,
    "ac": 0,
-   "r": "",
+   "r": "5-2",
    "v": 21,
    "conc": false,
    "teams": [
@@ -1640,7 +1640,7 @@
    "a": "ASD TT GASP Moncalieri B",
    "hc": 1,
    "ac": 0,
-   "r": "",
+   "r": "6-1",
    "v": 21,
    "conc": false,
    "teams": [
@@ -1658,7 +1658,7 @@
    "a": "38919",
    "hc": 0,
    "ac": 1,
-   "r": "",
+   "r": "2-5",
    "v": 31,
    "conc": false,
    "teams": [
@@ -1676,7 +1676,7 @@
    "a": "ASD TT ENJOY - FORNOO SENZA GLUTINE",
    "hc": 1,
    "ac": 0,
-   "r": "",
+   "r": "6-1",
    "v": 1,
    "conc": false,
    "teams": [
@@ -1694,7 +1694,7 @@
    "a": "TENNIS TAVOLO TORINO",
    "hc": 1,
    "ac": 0,
-   "r": "",
+   "r": "4-3",
    "v": 1,
    "conc": false,
    "teams": [
@@ -1712,7 +1712,7 @@
    "a": "TT.Torino B",
    "hc": 1,
    "ac": 0,
-   "r": "",
+   "r": "1-6",
    "v": 21,
    "conc": false,
    "teams": [
@@ -1730,7 +1730,7 @@
    "a": "38986",
    "hc": 0,
    "ac": 1,
-   "r": "",
+   "r": "7-0",
    "v": 29,
    "conc": false,
    "teams": [
@@ -1748,7 +1748,7 @@
    "a": "11797",
    "hc": 0,
    "ac": 1,
-   "r": "",
+   "r": "4-3",
    "v": 0,
    "conc": false,
    "teams": [
@@ -5792,7 +5792,7 @@
    ]
   }
  ],
- "updated": "08/11/2026 alle 05:00",
- "updated_iso": "2026-11-08T05:00:49+01:00",
+ "updated": "09/11/2026 alle 05:04",
+ "updated_iso": "2026-11-09T05:04:15+01:00",
  "season": "41"
 }
