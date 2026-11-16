@@ -1773,7 +1773,7 @@
    "a": "38921",
    "hc": 1,
    "ac": 1,
-   "r": "",
+   "r": "3-4",
    "v": 21,
    "conc": false,
    "teams": [
@@ -1810,7 +1810,7 @@
    "a": "SISPORT A",
    "hc": 1,
    "ac": 0,
-   "r": "",
+   "r": "4-3",
    "v": 21,
    "conc": false,
    "teams": [
@@ -1828,7 +1828,7 @@
    "a": "SISPORT B",
    "hc": 1,
    "ac": 0,
-   "r": "",
+   "r": "0-7",
    "v": 21,
    "conc": false,
    "teams": [
@@ -1846,7 +1846,7 @@
    "a": "TT Vercelli Mazzeri Assicurazioni",
    "hc": 1,
    "ac": 0,
-   "r": "",
+   "r": "4-3",
    "v": 21,
    "conc": false,
    "teams": [
@@ -1864,7 +1864,7 @@
    "a": "TT.Torino A",
    "hc": 1,
    "ac": 0,
-   "r": "",
+   "r": "3-4",
    "v": 21,
    "conc": false,
    "teams": [
@@ -1972,7 +1972,7 @@
    "a": "11896",
    "hc": 0,
    "ac": 1,
-   "r": "",
+   "r": "4-3",
    "v": 11,
    "conc": false,
    "teams": [
@@ -2026,7 +2026,7 @@
    "a": "TT CRDC TORINO A",
    "hc": 1,
    "ac": 0,
-   "r": "",
+   "r": "5-2",
    "v": 21,
    "conc": false,
    "teams": [
@@ -2044,7 +2044,7 @@
    "a": "Carmagnola A",
    "hc": 1,
    "ac": 0,
-   "r": "",
+   "r": "2-5",
    "v": 21,
    "conc": false,
    "teams": [
@@ -2062,7 +2062,7 @@
    "a": "11797",
    "hc": 0,
    "ac": 1,
-   "r": "",
+   "r": "0-7",
    "v": 4,
    "conc": false,
    "teams": [
@@ -2080,7 +2080,7 @@
    "a": "TT Coumba Aosta",
    "hc": 1,
    "ac": 0,
-   "r": "",
+   "r": "3-0",
    "v": null,
    "conc": true,
    "teams": [
@@ -5799,7 +5799,7 @@
    ]
   }
  ],
- "updated": "15/11/2026 alle 11:51",
- "updated_iso": "2026-11-15T11:51:45+01:00",
+ "updated": "16/11/2026 alle 12:14",
+ "updated_iso": "2026-11-16T12:14:46+01:00",
  "season": "41"
 }
