@@ -2134,7 +2134,7 @@
    "a": "A4 Verzuolo SCOTTA",
    "hc": 1,
    "ac": 0,
-   "r": "",
+   "r": "5-2",
    "v": 21,
    "conc": false,
    "teams": [
@@ -2152,7 +2152,7 @@
    "a": "Torino A",
    "hc": 1,
    "ac": 0,
-   "r": "",
+   "r": "3-4",
    "v": 21,
    "conc": false,
    "teams": [
@@ -2188,7 +2188,7 @@
    "a": "TT GS PORTE B",
    "hc": 1,
    "ac": 0,
-   "r": "",
+   "r": "6-1",
    "v": 21,
    "conc": false,
    "teams": [
@@ -2206,7 +2206,7 @@
    "a": "A.S.D. T.T. ENJOY I CAPITANI",
    "hc": 1,
    "ac": 0,
-   "r": "",
+   "r": "2-5",
    "v": 21,
    "conc": false,
    "teams": [
@@ -2242,7 +2242,7 @@
    "a": "VALLEDORA ALPIGNANO TOP GUN",
    "hc": 1,
    "ac": 0,
-   "r": "",
+   "r": "5-2",
    "v": 21,
    "conc": false,
    "teams": [
@@ -2260,7 +2260,7 @@
    "a": "TT GS PORTE E",
    "hc": 1,
    "ac": 0,
-   "r": "",
+   "r": "5-2",
    "v": 21,
    "conc": false,
    "teams": [
@@ -2278,7 +2278,7 @@
    "a": "ASD TT GASP Moncalieri C",
    "hc": 1,
    "ac": 0,
-   "r": "",
+   "r": "5-2",
    "v": 21,
    "conc": false,
    "teams": [
@@ -2314,7 +2314,7 @@
    "a": "TT CRDC TORINO O",
    "hc": 1,
    "ac": 0,
-   "r": "",
+   "r": "1-6",
    "v": 21,
    "conc": false,
    "teams": [
@@ -2332,7 +2332,7 @@
    "a": "38826",
    "hc": 0,
    "ac": 1,
-   "r": "",
+   "r": "3-4",
    "v": 39,
    "conc": false,
    "teams": [
@@ -5799,7 +5799,7 @@
    ]
   }
  ],
- "updated": "20/11/2026 alle 12:36",
- "updated_iso": "2026-11-20T12:36:44+01:00",
+ "updated": "21/11/2026 alle 12:00",
+ "updated_iso": "2026-11-21T12:00:20+01:00",
  "season": "41"
 }
