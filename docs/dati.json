@@ -67,7 +67,8 @@
    "form": [
     "Riccardi Federico",
     "Giavarini Davide",
-    "Deiana Matteo"
+    "Deiana Matteo",
+    "Soligo Alberto"
    ]
   },
   {
@@ -198,7 +199,8 @@
     "Renault De Haas Stephane",
     "Durante Andrea",
     "Boetti Cecilia Emilia",
-    "Allegranza Maurizio"
+    "Allegranza Maurizio",
+    "Fabbri Gianluca"
    ]
   },
   {
@@ -235,7 +237,8 @@
    "form": [
     "De Marco Raffaele",
     "Picciau Pietro Francesco",
-    "Cagnoni Alberto"
+    "Cagnoni Alberto",
+    "Iannelli Giovanni"
    ]
   },
   {
@@ -243,7 +246,10 @@
    "ser": "C ♀",
    "gir": "femm Gir. A",
    "lab": "CUS Torino",
-   "form": []
+   "form": [
+    "Marino Emma",
+    "Chen Shurui"
+   ]
   },
   {
    "id": "12388",
@@ -2296,7 +2302,7 @@
    "a": "38909",
    "hc": 0,
    "ac": 1,
-   "r": "",
+   "r": "3-4",
    "v": 41,
    "conc": false,
    "teams": [
@@ -5799,7 +5805,7 @@
    ]
   }
  ],
- "updated": "21/11/2026 alle 12:00",
- "updated_iso": "2026-11-21T12:00:20+01:00",
+ "updated": "22/11/2026 alle 12:24",
+ "updated_iso": "2026-11-22T12:24:09+01:00",
  "season": "41"
 }
