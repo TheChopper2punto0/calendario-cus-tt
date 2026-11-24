@@ -2356,7 +2356,7 @@
    "a": "A4 VERZUOLO SCOTTA",
    "hc": 1,
    "ac": 0,
-   "r": "",
+   "r": "5-2",
    "v": 1,
    "conc": false,
    "teams": [
@@ -2374,7 +2374,7 @@
    "a": "ASD SIAL PIOSSASCO",
    "hc": 1,
    "ac": 0,
-   "r": "",
+   "r": "3-4",
    "v": 1,
    "conc": false,
    "teams": [
@@ -2392,7 +2392,7 @@
    "a": "TT VITATTIVA DECO POWER",
    "hc": 1,
    "ac": 0,
-   "r": "",
+   "r": "4-3",
    "v": 21,
    "conc": false,
    "teams": [
@@ -2410,7 +2410,7 @@
    "a": "ASDTT IVREA \"A\"",
    "hc": 1,
    "ac": 0,
-   "r": "",
+   "r": "2-5",
    "v": 21,
    "conc": false,
    "teams": [
@@ -5805,7 +5805,7 @@
    ]
   }
  ],
- "updated": "23/11/2026 alle 13:34",
- "updated_iso": "2026-11-23T13:34:04+01:00",
+ "updated": "24/11/2026 alle 14:42",
+ "updated_iso": "2026-11-24T14:42:29+01:00",
  "season": "41"
 }
